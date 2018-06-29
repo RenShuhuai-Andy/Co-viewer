@@ -7,13 +7,16 @@
 movie-boot项目启动方法：  
 movie-boot项目地址：https://github.com/wsk1103/movie-boot    
 **1. win系统安装Java 1.8 ， IDEA软件，MySQL数据库，redis，Nginx，Tomcat**（redis、Nginx暂时不知道怎么用）  
+最新版Navicat Premium12 中文破解版 安装激活：https://blog.csdn.net/qq_40529395/article/details/78839357  
 **2. 将项目导入到IDEA中，构建为MAVEN项目**  
 IDEA导入maven项目：https://jingyan.baidu.com/article/b0b63dbf0c0ac04a49307078.html  
 IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/72812084    
 **3. 打开MySQL，执行sql文件，将数据导入到MySQL中**  
-在IDEA中的导入方法：https://blog.csdn.net/joker8023joker/article/details/73065378  
-可以下载Navicat Premium 12（数据库管理软件，暂时不知道有什么用）：https://blog.csdn.net/qq_40529395/article/details/78839357  
-MySQL的下载：https://blog.csdn.net/clouderpig/article/details/79556149   
+下载MySQL：https://blog.csdn.net/clouderpig/article/details/79556149  
+下载Navicat Premium 12：https://blog.csdn.net/qq_40529395/article/details/78839357  
+如何通过navicat创建数据库和导入数据库：https://jingyan.baidu.com/article/219f4bf7cba39ade442d38f4.html  
+然后要点击运行  
+运行后在Idea连接数据库（MySql Workbench）：https://blog.csdn.net/joker8023joker/article/details/73065378  
 **4. 建立IDEA与MySQL的链接**  
 修改/src/main/java/com.wsk.movie/application.properties中的配置信息：第4、5、9、10行改为自己MySQL数据库的用户名和密码；在第7行后加上&useSSL=true。  
 完成Tomcat数据库连接池的配置：https://blog.csdn.net/qq_24421591/article/details/51055390  
