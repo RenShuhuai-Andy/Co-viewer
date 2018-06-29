@@ -22,4 +22,4 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
 完成Tomcat数据库连接池的配置：https://blog.csdn.net/qq_24421591/article/details/51055390  
 **5. 修改项目中/src/main/java/com.wsk.movie/email/send中的用户账号和密码信息**（不知为何没有效果）  
 **6. 运行**\src\main\java\com\wsk\movie\MovieApplication.java  
-**7. 访问**http://localhost:8080/
+**7. 访问**http://localhost:8080/ 账号：123456；密码qq12345
