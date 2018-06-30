@@ -18,8 +18,8 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
 然后要点击运行  
 运行后在Idea连接数据库（MySql Workbench）：https://blog.csdn.net/joker8023joker/article/details/73065378  
 **4. 建立IDEA与MySQL的链接**  
-修改/src/main/java/com.wsk.movie/application.properties中的配置信息：第4、5、9、10行改为自己MySQL数据库的用户名和密码；在第7行后加上&useSSL=true。  
+修改/src/main/java/com.rsh.coviewer/application.properties中的配置信息：第4、5、9、10行改为自己MySQL数据库的用户名和密码；在第7行后加上&useSSL=true。  
 完成Tomcat数据库连接池的配置：https://blog.csdn.net/qq_24421591/article/details/51055390  
-**5. 修改项目中/src/main/java/com.wsk.movie/email/send中的用户账号和密码信息**（不知为何没有效果）  
-**6. 运行**\src\main\java\com\wsk\movie\MovieApplication.java  
+**5. 修改项目中/src/main/java/com.rsh.coviewer/email/send中的用户账号和密码信息**（不知为何没有效果）  
+**6. 运行**\src\main\java\com\rsh\coviewer\MovieApplication.java  
 **7. 访问**http://localhost:8080/ 账号：123456；密码qq12345

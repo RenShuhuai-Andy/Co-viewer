@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${title} + '-搜索结果'">搜索书籍</title>
+    <link href="/image/title.ico" rel="icon"/>
+    <link href="/css/all.css" rel="stylesheet"/>
+    <link href="/css/movie/searchMovieResult.css" rel="stylesheet"/>
+    <script src="/js/jquery-3.0.0.js"></script>
+</head>
+<style>
+    div.search_movie_result_information_1 {
+        font-weight: 400;
+    }
+</style>
+<body>
+<header th:include="header :: copy"></header>
+<div class="all_content">
+    <main>
+        <div th:with="m=${entity}">
+            <div class="search_movie_result" th:each="o:${entity}">
+                <div class="search_movie_result_img">
+                    <a th:href="'/book/book_information/'+${o.getId()}">
+                        <img src="/image/1.jpg" th:src="${o.getImage()}" th:alt="${o.getTitle()}"/>
+                    </a>
+                </div>
+                <div class="search_movie_result_information">
+                    <div class="search_movie_result_information_1">
+                        <!--<span class="search_movie_result_information_name_1">书籍名</span>:-->
+                        <span class="search_movie_result_information_name_2" style="font-size: 1.2em; font-weight: 800">
+                            <a th:href="'/book/book_information/'+${o.getId()}" th:text="${o.getTitle()}">来自WSK的爱</a>
+                        </span>
+                    </div>
+                    <div class="search_movie_result_information_1">
+                        <!--<span class="search_movie_result_information_director_1">评分</span>:-->
+                        <span class="search_movie_result_information_director_2" th:text="${o.getAverage()}">
+                        </span>
+                    </div>
+                    <div class="search_movie_result_information_1">
+                        <!--<span class="search_movie_result_information_cast_1">作者</span>:-->
+                        <span class="search_movie_result_information_cast_2" th:text="${o.getAuthor()}">
+                        </span>
+                    </div>
+                    <div class="search_movie_result_information_1">
+                        <!--<span class="search_movie_result_information_name_1">出版社</span>:-->
+                        <span class="search_movie_result_information_name_2" th:text="${o.getPublisher()}">
+                        </span>
+                    </div>
+                    <div class="search_movie_result_information_1">
+                        <!--<span class="search_movie_result_information_name_1">价格</span>:-->
+                        <span th:text="${o.getPrice()}">
+                            </span>
+                    </div>
+                    <div class="search_movie_result_information_1">
+                        <!--<span class="search_movie_result_information_name_1">出版时间</span>:-->
+                        <span class="search_movie_result_information_name_2"
+                              th:text="${o.getPubdate()}">9.9</span>
+                    </div>
+                    <div class="search_movie_result_information_1" style="overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">
+                        <!--<span class="search_movie_result_information_name_1">简介</span>:-->
+                        <span class="search_movie_result_information_name_2" th:text="${o.getSummary()}">2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <aside th:include="aside :: aside"></aside>
+    <div style="clear: both"></div>
+</div>
+<footer>
+    <div>
+        <button class="go_to_top" value=""></button>
+    </div>
+</footer>
+</body>
+<script src="/js/all.js"></script>
+</html>
