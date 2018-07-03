@@ -4,14 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * Created by wsk1103 on 2017/6/12.
+ * 用户信息的序列化对象
+ * Created by rsh on 2018/7/2.
  */
 public class UserBean implements Serializable {
     private Integer id;
 
     private String address;
 
-    private String autograph;
+    private String autograph;//用户个人签名
 
     private String birthday;
 
@@ -27,7 +28,7 @@ public class UserBean implements Serializable {
 
     private Date modified;
 
-    private String avatar;
+    private String avatar;//用户头像
 
     private int friend;
 

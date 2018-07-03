@@ -24,7 +24,7 @@ import java.util.List;
  */
 @Component
 public class SearchBookServiceImpl implements SearchBookService {
-    private static final String URL = "https://api.douban.com/v2/book/search?";
+    private static final String URL = "https://api.douban.com/v2/book/search?";//豆瓣读书的api
 
     private final BookRepository bookRepository;
     private final IRedisUtils redisUtils;
@@ -58,7 +58,7 @@ public class SearchBookServiceImpl implements SearchBookService {
         String myUrl = URL + "q=" + name;
         String json;
         try {
-            json  = HttpUnits.urlToString(myUrl).text();
+            json = HttpUnits.urlToString(myUrl).text();
         } catch (IOException e) {
             e.printStackTrace();
             return null;
@@ -83,7 +83,7 @@ public class SearchBookServiceImpl implements SearchBookService {
             if (object.containsKey("rating")) {
                 object = object.getJSONObject("rating");
                 if (object.containsKey("average"))
-                model.setAverage(object.getString("average"));
+                    model.setAverage(object.getString("average"));
             }
             //如果数据库没有，则保存到数据库
             if (Tool.getInstance().isNullOrEmpty(bookRepository.findOne(id))) {

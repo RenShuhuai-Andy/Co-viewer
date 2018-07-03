@@ -3,7 +3,8 @@ package com.rsh.coviewer.bean;
 import java.io.Serializable;
 
 /**
- * Created by wsk1103 on 2017/6/9.
+ * 用户收藏的序列化对象，收藏的是用户说说(UserPublish)
+ * Created by rsh on 2018/7/2.
  */
 public class MyCollectionBean extends UserPublish implements Serializable {
     private String collectionTime;

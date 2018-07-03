@@ -14,7 +14,7 @@ public class ResultBean {
     private String tag;
     private String act;
     private String year;
-    private String  rating;
+    private String rating;
     private String area;
     private String dir;
     private String desc;

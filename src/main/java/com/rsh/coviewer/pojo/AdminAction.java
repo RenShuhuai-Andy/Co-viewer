@@ -3,6 +3,12 @@ package com.rsh.coviewer.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @DESCRIPTION : 管理员行为的序列化对象
+ * @AUTHOR : rsh
+ * @TIME : 2018/7/2
+ */
+
 public class AdminAction implements Serializable{
     private Integer id;
 

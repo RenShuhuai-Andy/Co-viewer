@@ -9,14 +9,14 @@ import java.util.Properties;
 
 /**
  * @DESCRIPTION : 只针对移动号码的用户，发送短信验证码，使用的移动的发送短信，
- *                  因为移动发送短信到139邮箱后，移动会以短信的形式发送到用户手机上。
+ * 因为移动发送短信到139邮箱后，移动会以短信的形式发送到用户手机上。
  * @AUTHOR : WuShukai
  * @TIME : 2018/6/18  15:47
  */
 public class Send {
 
-    private static final String PHONE = "15827524523";//用户的手机
-    private static final String PASSWORD = "123";//用户密码
+    private static final String PHONE = "";//用户的手机
+    private static final String PASSWORD = "";//用户密码
 
     public static void sendEmail(String phone, HttpServletRequest req, HttpServletResponse res) throws MessagingException {
         String ra = (String) req.getSession().getAttribute("codePhone");

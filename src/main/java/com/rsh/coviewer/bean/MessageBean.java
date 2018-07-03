@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by wsk1103 on 2017/6/12.
+ * 用户消息的序列化对象
+ * Created by rsh on 2018/7/2.
  */
 public class MessageBean implements Serializable {
     private Integer id;

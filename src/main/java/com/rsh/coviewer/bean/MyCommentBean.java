@@ -7,7 +7,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by wsk1103 on 2017/6/8.
+ * 我的评论的序列化对象
+ * Created by rsh on 2018/7/2.
  */
 public class MyCommentBean implements Serializable {
     private int pid;

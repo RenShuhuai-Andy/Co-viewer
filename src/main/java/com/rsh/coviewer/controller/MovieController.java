@@ -40,7 +40,7 @@ public class MovieController {
     private static final String ENCODE = "UTF-8";
     private static final String GET = "GET";
     private static final String POST = "POST";
-    private static final String URL = "http://op.juhe.cn/onebox/movie/video";
+    private static final String URL = "http://op.juhe.cn/onebox/movie/video";//影视影讯检索数据接口
     private static final String KEY = "e712295ae7ca460ec31624dd3dfe2094";
     private static final String DOUBAN_URL = "https://api.douban.com";
 

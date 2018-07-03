@@ -1,7 +1,6 @@
 package com.rsh.coviewer.dao;
 
 import com.rsh.coviewer.pojo.AdminAction;
-import com.rsh.coviewer.pojo.AdminAction;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

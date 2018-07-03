@@ -6,7 +6,8 @@ import com.rsh.coviewer.tool.Tool;
 import java.io.Serializable;
 
 /**
- * Created by wsk1103 on 2017/6/10.
+ * 电影的序列化对象
+ * Created by rsh on 2018/7/2.
  */
 public class MovieBean implements Serializable {
     private String reason;
