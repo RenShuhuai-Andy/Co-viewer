@@ -4,7 +4,7 @@
 第七组：任抒怀、周振宇、庾聪晖、范志康、文泽宇、齐晓阳  
 项目：一起看电影（影伴）  
   
-##Co-viewer项目启动方法：  
+## Co-viewer项目启动方法：  
 参考项目movie-boot地址：https://github.com/wsk1103/movie-boot    
 **1. win系统安装Java 1.8 ， IDEA软件，MySQL数据库，redis，Nginx，Tomcat**（redis、Nginx暂时不知道怎么用）  
 最新版Navicat Premium12 中文破解版 安装激活：https://blog.csdn.net/qq_40529395/article/details/78839357  
@@ -28,8 +28,8 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
 
 ---    
     
-##电影类框架：  
-####movie包：手动从bean中分出  
+## 电影类框架：  
+#### movie包：手动从bean中分出  
 * celebrity:json电影人条目信息  
   * Celebrity:电影人
   * Subjects:电影
@@ -42,7 +42,7 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
     *...
   * movie:电影信息（？？？）  
     *...
-####bean包:回显的实体类  
+#### bean包:回显的实体类  
 * Acts:演员
 * Casts:演员表
 * CriticComment:影评
@@ -52,7 +52,7 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
    
  ---
  
- ####pojo包:电影相关的数据库实体--service包:电影相关的服务操作-resources下的mapping包:mybatis相关的xml文件  
+ #### pojo包:电影相关的数据库实体--service包:电影相关的服务操作-resources下的mapping包:mybatis相关的xml文件  
  service下定义了9个服务接口，lmpl文件夹下是服务接口的实现类  
  1. CollectionCritic:被收藏的影评--CollectionCriticService
  2. CommentCritic:影评--CommentCriticSercive
@@ -73,13 +73,13 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
  
 ---
 
-####controller包：链接控制--resources下的templates包
+#### controller包：链接控制--resources下的templates包
 * CriticController:影评的链接控制，包括发表、查找、收藏、点赞--criticInformation.html
 * MovieController:电影的链接控制，包括查看电影、影院、电影人信息--movieInformation.html
 
-##使用到的API
+## 使用到的API
 * 豆瓣图书：https://developers.douban.com/wiki/?title=book_v2
 * 豆瓣电影：https://developers.douban.com/wiki/?title=movie_v2
 
-##疑问
+## 疑问
 * /resources/templates/book/search/result.html中为什么使用search_movie_result的结果?
