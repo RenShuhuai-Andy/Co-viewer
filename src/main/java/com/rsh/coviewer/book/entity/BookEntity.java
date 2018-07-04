@@ -27,7 +27,7 @@ public class BookEntity {
     private String authorIntro;
     private String summary;
     private String price;
-    private Integer status;
+    private Integer status;//是否使用？1-是，0-否
 
     @Id
     @Column(name = "id")

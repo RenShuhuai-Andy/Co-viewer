@@ -3,7 +3,11 @@ package com.rsh.coviewer.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class UserPassword  implements Serializable {
+/**
+ * 用户密码的序列化对象
+ * Created by rsh on 2018/7/4
+ */
+public class UserPassword implements Serializable {
     private Integer id;
 
     private String password;
@@ -29,11 +33,11 @@ public class UserPassword  implements Serializable {
     }
 
     public Date getModified() {
-        return modified==null?null: (Date) modified.clone();
+        return modified == null ? null : (Date) modified.clone();
     }
 
     public void setModified(Date modified) {
-        this.modified = modified==null?null: (Date) modified.clone();
+        this.modified = modified == null ? null : (Date) modified.clone();
     }
 
     public Short getAllow() {

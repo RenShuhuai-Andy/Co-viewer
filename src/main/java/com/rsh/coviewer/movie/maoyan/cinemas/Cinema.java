@@ -1,6 +1,6 @@
-package com.rsh.coviewer.bean.maoyan.cinemas;
+package com.rsh.coviewer.movie.maoyan.cinemas;
 
-import com.rsh.coviewer.bean.maoyan.Control;
+import com.rsh.coviewer.movie.maoyan.Control;
 import lombok.Data;
 
 import java.util.ArrayList;

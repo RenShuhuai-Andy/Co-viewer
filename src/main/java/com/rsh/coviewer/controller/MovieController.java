@@ -6,12 +6,12 @@ import com.rsh.coviewer.bean.MovieBean;
 import com.rsh.coviewer.bean.MyFriendsBean;
 import com.rsh.coviewer.bean.AllInformation;
 import com.rsh.coviewer.bean.OneSubject;
-import com.rsh.coviewer.bean.celebrity.CelebrityBean;
-import com.rsh.coviewer.bean.celebrity.USbox;
-import com.rsh.coviewer.bean.maoyan.Hot;
-import com.rsh.coviewer.bean.maoyan.cinema.Cinemas;
-import com.rsh.coviewer.bean.maoyan.cinemas.Cinema;
-import com.rsh.coviewer.bean.maoyan.movie.MovieInformation;
+import com.rsh.coviewer.movie.celebrity.Celebrity;
+import com.rsh.coviewer.movie.celebrity.USbox;
+import com.rsh.coviewer.movie.maoyan.Hot;
+import com.rsh.coviewer.movie.maoyan.cinema.Cinemas;
+import com.rsh.coviewer.movie.maoyan.cinemas.Cinema;
+import com.rsh.coviewer.movie.maoyan.movie.MovieInformation;
 import com.rsh.coviewer.pojo.MyFriends;
 import com.rsh.coviewer.pojo.UserInformation;
 import com.rsh.coviewer.service.*;
@@ -33,7 +33,9 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by wsk1103 on 2017/10/22.
+ * @DESCRIPTION : 电影的链接控制
+ * @AUTHOR : rsh
+ * @TIME : 2018/7/4
  */
 @Controller
 public class MovieController {
@@ -57,7 +59,7 @@ public class MovieController {
     @Resource
     private GoodCriticService goodCriticService;
 
-    //模糊查询电影信息
+    //模糊查询电影信息。没有在.html找到映射，未实现？
     @RequestMapping(value = "/search/movie/result")
     public String searchMovieResult(Model model, HttpServletRequest request, @ModelAttribute("name") String q) {
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
@@ -68,7 +70,7 @@ public class MovieController {
             return "redirect:/login";
         }
         model.addAttribute("userInformation", userInformation);
-        String url = DOUBAN_URL + "/v2/movie/search";
+        String url = DOUBAN_URL + "/v2/movie/search";//豆瓣电影条目搜索api
         Map<String, String> map = new HashMap<>();
         map.put("q", q);
         AllInformation information = getMovieInformation(url, map, ENCODE, GET);
@@ -80,15 +82,15 @@ public class MovieController {
         return "/movie/SearchMovieResult";
     }
 
-    //查看电影信息
+    //查看电影信息。没有在.html找到映射，未实现？
     @RequestMapping(value = "/search/movie/information")
     public String searchMovie(Model model, HttpServletRequest request, @RequestParam String id) {
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
         if (Tool.getInstance().isNullOrEmpty(userInformation)) {
-            return "redirect:/login";
+            return "redirect:/login";//重定向到/login
         }
         model.addAttribute("userInformation", userInformation);
-        String url = DOUBAN_URL + "/v2/movie/subject/" + id;
+        String url = DOUBAN_URL + "/v2/movie/subject/" + id;//豆瓣电影条目信息
         System.out.println(url);
         Map map = new HashMap();
         String name = "";
@@ -113,7 +115,7 @@ public class MovieController {
         params.put("q", name);
         params.put("dtype", "json");
         try {
-//            String sr = HttpUtils.submitPostData(URL, params, ENCODE, POST);
+//          String sr = HttpUtils.submitPostData(URL, params, ENCODE, POST);
             String sr = POSTtoJSON.getInstance().post(URL, params, POST);
             movieBean = JSON.parseObject(sr, MovieBean.class);
         } catch (JSONException e) {
@@ -145,19 +147,19 @@ public class MovieController {
         String result = HttpUtils.submitPostData(url, params, ENCODE, GET);
         System.out.println(result);
         model.addAttribute("result", "success");
-        CelebrityBean celebrityBean;
+        Celebrity celebrity;
         try {
-            celebrityBean = JSON.parseObject(result, CelebrityBean.class);
+            celebrity = JSON.parseObject(result, Celebrity.class);
         } catch (JSONException e) {
             e.printStackTrace();
-            celebrityBean = new CelebrityBean();
+            celebrity = new Celebrity();
             model.addAttribute("result", "error");
         } catch (Exception e) {
             e.printStackTrace();
-            celebrityBean = new CelebrityBean();
+            celebrity = new Celebrity();
             model.addAttribute("result", "error");
         }
-        model.addAttribute("celebrity", celebrityBean);
+        model.addAttribute("celebrity", celebrity);
         model.addAttribute("action", 3);
         getUserCounts(model, userInformation.getId());
         getFriend(model, userInformation.getId());
@@ -314,9 +316,12 @@ public class MovieController {
         model.addAttribute("collections", collectionCriticService.getUserCounts(uid));
     }
 
+    //获得电影信息
     private AllInformation getMovieInformation(String url, Map params, String encode, String action) {
         AllInformation information;
         try {
+            //JSON.parseObject将从服务器端接收到的json字符串转化为相应的AllInformation对象
+            //HttpUtils.submitPostData向服务器提交请求并返回结果
             information = JSON.parseObject(HttpUtils.submitPostData(url, params, encode, action), AllInformation.class);
         } catch (JSONException e) {
             e.printStackTrace();

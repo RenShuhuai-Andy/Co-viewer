@@ -46,8 +46,8 @@ public class MyQueue {
                     return;
                 }
             }
-//            if (LIST.contains(bean.getEntity().getTaskname())) {
-//                System.out.println("重复" + bean.getRunnable().getClass().getName());
+//            if (LIST.contains(movie.getEntity().getTaskname())) {
+//                System.out.println("重复" + movie.getRunnable().getClass().getName());
 //                return;
 //            }
         }

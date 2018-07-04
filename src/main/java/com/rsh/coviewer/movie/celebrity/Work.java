@@ -1,4 +1,4 @@
-package com.rsh.coviewer.bean.celebrity;
+package com.rsh.coviewer.movie.celebrity;
 
 import com.rsh.coviewer.bean.OneSubject;
 import lombok.Data;

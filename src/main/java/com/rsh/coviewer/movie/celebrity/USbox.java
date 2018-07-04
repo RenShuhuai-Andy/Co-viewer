@@ -1,4 +1,4 @@
-package com.rsh.coviewer.bean.celebrity;
+package com.rsh.coviewer.movie.celebrity;
 
 import lombok.Data;
 
@@ -6,7 +6,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
- * Created by wsk1103 on 2017/10/23.
+ * 北美票房的序列化对象
+ * Created by rsh on 2018/7/3.
  */
 @Data
 public class USbox implements Serializable {

@@ -1,13 +1,13 @@
 package com.rsh.coviewer.dao;
 
 import com.rsh.coviewer.pojo.CollectionCritic;
-import com.rsh.coviewer.pojo.CollectionCritic;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
+
 @Mapper
 @Repository
 public interface CollectionCriticMapper {

@@ -2,7 +2,7 @@ package com.rsh.coviewer.controller;
 
 import com.rsh.coviewer.springdata.admin.ReportRepository;
 import com.rsh.coviewer.springdata.admin.entity.CriticReportEntity;
-import com.rsh.coviewer.bean.CriticCommentBean;
+import com.rsh.coviewer.bean.CriticComment;
 import com.rsh.coviewer.bean.MyCollectionBean;
 import com.rsh.coviewer.bean.MyCommentBean;
 import com.rsh.coviewer.bean.UserPublish;
@@ -27,7 +27,9 @@ import java.sql.Timestamp;
 import java.util.*;
 
 /**
- * Created by wsk1103 on 2017/5/1.
+ * @DESCRIPTION : 影评链接控制
+ * @AUTHOR : rsh
+ * @TIME : 2018/7/4
  */
 @Controller
 public class CriticController {
@@ -47,6 +49,7 @@ public class CriticController {
 
     @Autowired
     private ReportRepository reportRepository;
+
     //发表影评
     @RequestMapping(value = "/publishCritic", method = {RequestMethod.POST, RequestMethod.GET})
     @ResponseBody
@@ -90,13 +93,13 @@ public class CriticController {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                if (!result){
+                if (!result) {
                     map.put("result", "0");
                     return map;
                 }
             } else if (!image.getParentFile().exists()) {
                 boolean result = image.mkdir();
-                if (!result){
+                if (!result) {
                     map.put("result", "0");
                     return map;
                 }
@@ -114,7 +117,7 @@ public class CriticController {
             thumbnails.append(fileName);
             path = path + fileName;
             //色情图片识别
-            if (!Tool.getInstance().checkPornograp(path)){
+            if (!Tool.getInstance().checkPornograp(path)) {
                 map.put("result", "2");
                 return map;
             }
@@ -303,31 +306,31 @@ public class CriticController {
             if (!ids.contains(c.getUid()))
                 ids.add(c.getUid());
         }
-        List<CriticCommentBean> criticCommentBeans = new ArrayList<>();
+        List<CriticComment> criticComments = new ArrayList<>();
         if (ids.size() == 0) {
-            return criticCommentBeans;
+            return criticComments;
         }
         List<UserInformation> userInformations = userInformationService.getAllForeach(ids);
 
         for (CommentCritic c : commentCritics) {
-            CriticCommentBean criticCommentBean = new CriticCommentBean();
+            CriticComment criticComment = new CriticComment();
             a:
             for (UserInformation u : userInformations) {
                 if (Objects.equals(c.getUid(), u.getId())) {
-                    criticCommentBean.setAvatar(u.getAvatar());
-                    criticCommentBean.setName(u.getName());
-                    criticCommentBean.setUid(u.getId());
+                    criticComment.setAvatar(u.getAvatar());
+                    criticComment.setName(u.getName());
+                    criticComment.setUid(u.getId());
                     break a;
                 }
             }
-            criticCommentBean.setCritic(c.getCritic());
-            criticCommentBean.setGood(c.getGood());
-            criticCommentBean.setId(c.getId());
-            criticCommentBean.setPid(c.getPid());
-            criticCommentBean.setTime(Tool.getInstance().DateToStringWithHours(c.getTime()));
-            criticCommentBeans.add(criticCommentBean);
+            criticComment.setCritic(c.getCritic());
+            criticComment.setGood(c.getGood());
+            criticComment.setId(c.getId());
+            criticComment.setPid(c.getPid());
+            criticComment.setTime(Tool.getInstance().DateToStringWithHours(c.getTime()));
+            criticComments.add(criticComment);
         }
-        return criticCommentBeans;
+        return criticComments;
     }
 
     //取消关注，举报，+关注

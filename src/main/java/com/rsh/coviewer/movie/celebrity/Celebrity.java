@@ -1,4 +1,4 @@
-package com.rsh.coviewer.bean.celebrity;
+package com.rsh.coviewer.movie.celebrity;
 
 import lombok.Data;
 
@@ -7,10 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Created by wsk1103 on 2017/10/22.
+ * 电影人的序列化对象
+ * Created by rsh on 2018/7/3.
  */
 @Data
-public class CelebrityBean implements Serializable {
+public class Celebrity implements Serializable {
     private String mobile_url;
     private ArrayList<String> aka_en;
     private String name;

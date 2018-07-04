@@ -3,7 +3,11 @@ package com.rsh.coviewer.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class PublishCritic  implements Serializable {
+/**
+ * 发布的评论
+ * Created by rsh on 2018/7/4.
+ */
+public class PublishCritic implements Serializable {
     private Integer id;
 
     private Integer good;
@@ -59,11 +63,11 @@ public class PublishCritic  implements Serializable {
     }
 
     public Date getTime() {
-        return time==null?null: (Date) time.clone();
+        return time == null ? null : (Date) time.clone();
     }
 
     public void setTime(Date time) {
-        this.time = time==null?null: (Date) time.clone();
+        this.time = time == null ? null : (Date) time.clone();
     }
 
     public String getTitle() {
@@ -83,11 +87,11 @@ public class PublishCritic  implements Serializable {
     }
 
     public Date getModified() {
-        return modified==null?null: (Date) modified.clone();
+        return modified == null ? null : (Date) modified.clone();
     }
 
     public void setModified(Date modified) {
-        this.modified = modified==null?null: (Date) modified.clone();
+        this.modified = modified == null ? null : (Date) modified.clone();
     }
 
     public Short getAllow() {

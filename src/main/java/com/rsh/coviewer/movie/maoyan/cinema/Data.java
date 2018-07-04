@@ -1,4 +1,4 @@
-package com.rsh.coviewer.bean.maoyan.cinema;
+package com.rsh.coviewer.movie.maoyan.cinema;
 
 import java.util.ArrayList;
 import java.util.HashMap;

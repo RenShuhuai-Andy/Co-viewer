@@ -3,6 +3,10 @@ package com.rsh.coviewer.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * 论坛内容的序列化对象
+ * Created by rsh on 2018/7/4.
+ */
 public class ForumContent  implements Serializable {
     private Integer id;
 

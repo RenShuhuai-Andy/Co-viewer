@@ -3,7 +3,11 @@ package com.rsh.coviewer.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class GoodCritic  implements Serializable {
+/**
+ * 被点赞的影评
+ * Created by rsh on 2018/7/4.
+ */
+public class GoodCritic implements Serializable {
     private Integer id;
 
     private Integer pid;
@@ -33,11 +37,11 @@ public class GoodCritic  implements Serializable {
     }
 
     public Date getTime() {
-        return time==null?null: (Date) time.clone();
+        return time == null ? null : (Date) time.clone();
     }
 
     public void setTime(Date time) {
-        this.time = time==null?null: (Date) time.clone();
+        this.time = time == null ? null : (Date) time.clone();
     }
 
     public Integer getUid() {
@@ -49,11 +53,11 @@ public class GoodCritic  implements Serializable {
     }
 
     public Date getModified() {
-        return modified==null?null: (Date) modified.clone();
+        return modified == null ? null : (Date) modified.clone();
     }
 
     public void setModified(Date modified) {
-        this.modified = modified==null?null: (Date) modified.clone();
+        this.modified = modified == null ? null : (Date) modified.clone();
     }
 
     public Short getAllow() {

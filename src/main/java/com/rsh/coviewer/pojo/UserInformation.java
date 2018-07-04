@@ -3,7 +3,11 @@ package com.rsh.coviewer.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
-public class UserInformation  implements Serializable {
+/**
+ * 用户信息的序列化对象
+ * Created by rsh on 2018/7/4.
+ */
+public class UserInformation implements Serializable {
 
     private static final long serialVersionUID = 55426316542955265L;
 
@@ -29,7 +33,7 @@ public class UserInformation  implements Serializable {
 
     private String avatar;
 
-    private Integer allowed;
+    private Integer allowed;//是否可用？1-是，0-否
 
     public Integer getId() {
         return id;
@@ -56,11 +60,11 @@ public class UserInformation  implements Serializable {
     }
 
     public Date getBirthday() {
-        return birthday==null?null: (Date) birthday.clone();
+        return birthday == null ? null : (Date) birthday.clone();
     }
 
     public void setBirthday(Date birthday) {
-        this.birthday = birthday ==null?null: (Date) birthday.clone();
+        this.birthday = birthday == null ? null : (Date) birthday.clone();
     }
 
     public Date getBuildtime() {
@@ -104,11 +108,11 @@ public class UserInformation  implements Serializable {
     }
 
     public Date getModified() {
-        return modified==null?null: (Date) modified.clone();
+        return modified == null ? null : (Date) modified.clone();
     }
 
     public void setModified(Date modified) {
-        this.modified = modified==null?null: (Date) modified.clone();
+        this.modified = modified == null ? null : (Date) modified.clone();
     }
 
     public String getAvatar() {

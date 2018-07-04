@@ -88,7 +88,7 @@ public class MyTask implements Runnable{
         Date now = new Date();
         try {
             bean = queue.take();
-//            System.out.println("run:" + bean.getEntity().getTaskname());
+//            System.out.println("run:" + movie.getEntity().getTaskname());
         } catch (InterruptedException e) {
             e.printStackTrace();
             MytaskerrorEntity entity = new MytaskerrorEntity();
@@ -117,7 +117,7 @@ public class MyTask implements Runnable{
         logRepository.save(log);
         System.out.println("队列剩余：" + MyQueue.getInstance().size());
 //        //运行结束后移除set中的key
-//        MyQueue.getInstance().removeKey(bean);
+//        MyQueue.getInstance().removeKey(movie);
     }
 
     //开始运行定时任务

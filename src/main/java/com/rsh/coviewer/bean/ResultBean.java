@@ -1,7 +1,6 @@
 package com.rsh.coviewer.bean;
 
 import com.rsh.coviewer.tool.Tool;
-import com.rsh.coviewer.tool.Tool;
 
 import java.util.ArrayList;
 import java.util.HashMap;

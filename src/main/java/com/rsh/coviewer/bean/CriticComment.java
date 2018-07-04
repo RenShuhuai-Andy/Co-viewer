@@ -3,10 +3,10 @@ package com.rsh.coviewer.bean;
 import java.io.Serializable;
 
 /**
- * 说说评论的序列化对象
+ * 影评的序列化对象
  * Created by rsh on 2018/7/2.
  */
-public class CriticCommentBean implements Serializable {
+public class CriticComment implements Serializable {
     private int id;
     private int uid;
     private String name;

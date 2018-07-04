@@ -1,4 +1,4 @@
-package com.rsh.coviewer.bean.maoyan;
+package com.rsh.coviewer.movie.maoyan;
 
 import java.util.ArrayList;
 

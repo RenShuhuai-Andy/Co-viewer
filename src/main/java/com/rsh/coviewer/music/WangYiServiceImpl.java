@@ -723,8 +723,8 @@ public class WangYiServiceImpl implements WangYiService {
                     "[03:58.110]我一路的跟你轮回声我对你用情极深";
             System.out.println(ss.replaceAll("\\[[0-9]+:[0-9]+\\.[0-9]+\\]",""));
 //            System.out.println(getMusicLyric(33206214));
-//            WangYiBean bean = HttpUnits.urlToBean(GET_URL, WangYiBean.class, DATA, HEADERS, null, HttpMethodType.POST);
-//            long song_id = bean.getResult().getSongs()[0].getId();
+//            WangYiBean movie = HttpUnits.urlToBean(GET_URL, WangYiBean.class, DATA, HEADERS, null, HttpMethodType.POST);
+//            long song_id = movie.getResult().getSongs()[0].getId();
 //            long song_id = 33223036;
 //            System.out.println((song_id));
 //            String params = URLEncoder.encode(AES.getParams(FIRST_PARAM_START.append(song_id).append(FIRST_PARAM_END).toString()), "UTF-8");

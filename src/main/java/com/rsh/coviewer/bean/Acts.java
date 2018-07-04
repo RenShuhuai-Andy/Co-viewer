@@ -1,9 +1,10 @@
 package com.rsh.coviewer.bean;
 
 /**
- * Created by wsk1103 on 2017/6/11.
+ * 演员
+ * Created by rsh on 2018/7/3.
  */
-public class ActsBean {
+public class Acts {
     private String name;
     private String url;
     private String image;

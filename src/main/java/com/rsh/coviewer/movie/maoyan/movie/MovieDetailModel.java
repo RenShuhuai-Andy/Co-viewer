@@ -1,4 +1,4 @@
-package com.rsh.coviewer.bean.maoyan.movie;
+package com.rsh.coviewer.movie.maoyan.movie;
 
 import lombok.Data;
 

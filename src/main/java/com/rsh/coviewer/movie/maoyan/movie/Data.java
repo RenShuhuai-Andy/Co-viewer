@@ -1,4 +1,4 @@
-package com.rsh.coviewer.bean.maoyan.movie;
+package com.rsh.coviewer.movie.maoyan.movie;
 
 /**
  * Created by wsk1103 on 2017/10/24.

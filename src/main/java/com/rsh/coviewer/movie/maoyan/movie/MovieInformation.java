@@ -1,6 +1,6 @@
-package com.rsh.coviewer.bean.maoyan.movie;
+package com.rsh.coviewer.movie.maoyan.movie;
 
-import com.rsh.coviewer.bean.maoyan.Control;
+import com.rsh.coviewer.movie.maoyan.Control;
 
 /**
  * Created by wsk1103 on 2017/10/24.

@@ -1,7 +1,6 @@
 package com.rsh.coviewer.dao;
 
 import com.rsh.coviewer.pojo.UserPassword;
-import com.rsh.coviewer.pojo.UserPassword;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 

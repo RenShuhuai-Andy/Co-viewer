@@ -1,7 +1,6 @@
 package com.rsh.coviewer.bean;
 
 import com.rsh.coviewer.pojo.CommentCritic;
-import com.rsh.coviewer.pojo.CommentCritic;
 
 import java.io.Serializable;
 import java.util.List;

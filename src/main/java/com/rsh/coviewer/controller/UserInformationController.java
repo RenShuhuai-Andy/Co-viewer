@@ -21,8 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
-import static com.rsh.coviewer.controller.RepeatSubmit.isRepeatSubmit;
-
 /**
  * Created by wsk1103 on 2017/4/26.
  */
@@ -400,8 +398,8 @@ public class UserInformationController {
         model.addAttribute("comment", commentCriticService.getCounts(pid));
         model.addAttribute("myFriends", getMyFriends(userInformation.getId()));
         model.addAttribute("publishCritic", publishCritic);
-        List<CriticCommentBean> CriticCommentBeans = getCommentByPid(1, pid);
-        model.addAttribute("CriticCommentBeans", CriticCommentBeans);
+        List<CriticComment> CriticComments = getCommentByPid(1, pid);
+        model.addAttribute("CriticComments", CriticComments);
         getUserCounts(model, uid);
         return "information/criticInformation";
     }
@@ -627,7 +625,7 @@ public class UserInformationController {
     }
 
     //通过影评的id获取评论
-    private List<CriticCommentBean> getCommentByPid(int start, int pid) {
+    private List<CriticComment> getCommentByPid(int start, int pid) {
         Map<String, Integer> map = new HashMap<>();
         map.put("start", (start - 1) * 10);
         map.put("pid", pid);
@@ -637,31 +635,31 @@ public class UserInformationController {
             if (!ids.contains(c.getUid()))
                 ids.add(c.getUid());
         }
-        List<CriticCommentBean> criticCommentBeans = new ArrayList<>();
+        List<CriticComment> criticComments = new ArrayList<>();
         if (ids.size() == 0) {
-            return criticCommentBeans;
+            return criticComments;
         }
         List<UserInformation> userInformations = userInformationService.getAllForeach(ids);
 
         for (CommentCritic c : commentCritics) {
-            CriticCommentBean criticCommentBean = new CriticCommentBean();
+            CriticComment criticComment = new CriticComment();
             a:
             for (UserInformation u : userInformations) {
                 if (c.getUid() == u.getId()) {
-                    criticCommentBean.setName(u.getName());
-                    criticCommentBean.setUid(u.getId());
-                    criticCommentBean.setAvatar(u.getAvatar());
+                    criticComment.setName(u.getName());
+                    criticComment.setUid(u.getId());
+                    criticComment.setAvatar(u.getAvatar());
                     break a;
                 }
             }
-            criticCommentBean.setGood(c.getGood());
-            criticCommentBean.setId(c.getId());
-            criticCommentBean.setCritic(c.getCritic());
-            criticCommentBean.setPid(c.getPid());
-            criticCommentBean.setTime(Tool.getInstance().DateToStringWithHours(c.getTime()));
-            criticCommentBeans.add(criticCommentBean);
+            criticComment.setGood(c.getGood());
+            criticComment.setId(c.getId());
+            criticComment.setCritic(c.getCritic());
+            criticComment.setPid(c.getPid());
+            criticComment.setTime(Tool.getInstance().DateToStringWithHours(c.getTime()));
+            criticComments.add(criticComment);
         }
-        return criticCommentBeans;
+        return criticComments;
     }
 
     private int getUserInformationId(String phone) {

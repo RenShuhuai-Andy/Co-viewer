@@ -133,7 +133,7 @@
                             </div>
                             <!--评论盖楼-->
                             <div class="all_friends_comment">
-                                <div th:each="o:${CriticCommentBeans}" class="specific_comment">
+                                <div th:each="o:${CriticComments}" class="specific_comment">
                                     <img class="all_friends_user_img" th:src="${o.avatar}" style="" th:title="${o.name}"
                                          th:value="${o.avatar}"/>
                                     <div style="padding-left: 36px;font-size: .8em">
