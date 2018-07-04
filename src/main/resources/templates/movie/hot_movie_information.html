@@ -52,9 +52,10 @@
                             <div th:text="${m.getRt()}" class="movie_font">
                             </div>
                         </div>
-                        <!--<div style="padding: 1.5em"><span class="movie_show"></span>-->
+                        <div style="padding: 1.5em"><span class="movie_show"></span>
                             <!--<a th:href="'/cinemas/'+${movie.getData().getMovieDetailModel().getId()}"><button id="booking">网上订票</button></a>-->
-                        <!--</div>-->
+                            <a th:id="${movie.getData().getMovieDetailModel().getId()}" onclick="window.open('http://maoyan.com/cinemas?movieId='+id)"><button id="booking">猫眼订票</button></a>
+                        </div>
                     </div>
                 </div>
                 <div class="movie_desc" style="padding: .5em 1em">

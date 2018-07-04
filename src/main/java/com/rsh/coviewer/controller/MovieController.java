@@ -223,7 +223,7 @@ public class MovieController {
         return "/movie/hot_movie";
     }
 
-    //热映电影的详情，
+    //热映电影的详情
     @RequestMapping(value = "/hot/movie/information/{id}")
     public String hotMovieInformation(@PathVariable String id, Model model, HttpServletRequest request) {
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
@@ -260,7 +260,7 @@ public class MovieController {
         return "/movie/us_box";
     }
 
-    //附件电影院
+    //附近电影院，方法未使用
     @RequestMapping(value = "/cinemas/{id}")
     public String cinemas(Model model, HttpServletRequest request, @PathVariable String id) {
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
@@ -268,23 +268,28 @@ public class MovieController {
             return "redirect:../login";
         }
         model.addAttribute("userInformation", userInformation);
-        String url = "http://m.maoyan.com/cinemas.json";
-        String result = HttpUtils.maoyan(url);
-        Cinema cinema = JSON.parseObject(result, Cinema.class);
 
-        url = "http://m.maoyan.com/movie/" + id + ".json";
-        result = HttpUtils.maoyan(url);
-        MovieInformation information = JSON.parseObject(result, MovieInformation.class);
-        String img = information.getData().getMovieDetailModel().getImg();
-        model.addAttribute("img", img);
-        model.addAttribute("movie", cinema);
-        model.addAttribute("action", 3);
-        getUserCounts(model, userInformation.getId());
-        getFriend(model, userInformation.getId());
+//猫眼接口不可用
+//        String url = "http://maoyan.com/cinemas?movieId=" + id;
+//        String result = HttpUtils.maoyan(url);
+//        System.out.println("result: " + result);
+//        Cinema cinema = JSON.parseObject(result, Cinema.class);
+//
+//
+//        url = "http://m.maoyan.com/movie/" + id + ".json";
+//        result = HttpUtils.maoyan(url);
+//        MovieInformation information = JSON.parseObject(result, MovieInformation.class);
+//        String img = information.getData().getMovieDetailModel().getImg();
+//        model.addAttribute("img", img);
+//        model.addAttribute("movie", cinema);
+//        model.addAttribute("action", 3);
+//        System.out.println("model: " + model);
+//        getUserCounts(model, userInformation.getId());
+//        getFriend(model, userInformation.getId());
         return "/movie/cinemas";
     }
 
-    //单个影院
+    //单个影院，方法未使用
     @RequestMapping(value = "/cinema/{id}")
     public String cinema(@PathVariable String id, Model model, HttpServletRequest request) {
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
