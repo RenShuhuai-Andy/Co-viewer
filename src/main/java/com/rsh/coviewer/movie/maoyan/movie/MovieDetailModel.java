@@ -5,24 +5,25 @@ import lombok.Data;
 import java.util.ArrayList;
 
 /**
- * Created by wsk1103 on 2017/10/24.
+ * Created by rsh on 2018/7/5.
  */
 @Data
 public class MovieDetailModel {
-    private String cat;
-    private int dealsum;
-    private String dir;
-    private String dra;
-    private String id;
-    private String img;
-    private String nm;
-    private ArrayList<String> photos;
-    private String rt;
-    private double sc;
-    private String scm;
-    private String src;
-    private String star;
-    private String vd;
-    private String ver;
-    private String vnum;
+    private String cat;//电影类型，如剧情、动作、惊悚等
+    private int dealsum;//
+    private String dir;//导演
+    private String dra;//
+    private String id;//电影id
+    private String img;//
+    private String nm;//影片名
+    private ArrayList<String> photos;//
+    private String rt;//上映时间
+    private double sc;//
+    private String scm;//描述
+    private String src;//地区
+    private String star;//影星
+    private String vd;//
+    private String ver;//2D或3D
+    private String vnum;//
+    private int wish;//想看人数
 }

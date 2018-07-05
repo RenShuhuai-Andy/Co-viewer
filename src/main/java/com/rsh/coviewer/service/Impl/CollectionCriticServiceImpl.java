@@ -16,6 +16,7 @@ import java.util.Map;
 public class CollectionCriticServiceImpl implements CollectionCriticService {
     @Resource
     private CollectionCriticMapper collectionCriticMapper;
+
     @Override
     public int deleteByPrimaryKey(Integer id) {
         return 0;

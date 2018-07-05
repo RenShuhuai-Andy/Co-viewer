@@ -52,7 +52,7 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
    
  ---
  
- #### pojo包:电影相关的数据库实体--service包:电影相关的服务操作-resources下的mapping包:mybatis相关的xml文件  
+ #### pojo包:电影相关的数据库实体--service包:电影相关的服务操作--resources下的mapping包:mybatis相关的xml文件  
  service下定义了9个服务接口，lmpl文件夹下是服务接口的实现类  
  1. CollectionCritic:被收藏的影评--CollectionCriticService
  2. CommentCritic:影评--CommentCriticSercive
@@ -80,6 +80,10 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
 ## 使用到的API
 * 豆瓣图书：https://developers.douban.com/wiki/?title=book_v2
 * 豆瓣电影：https://developers.douban.com/wiki/?title=movie_v2
+* 猫眼电影："http://m.maoyan.com/movie/" + id + ".json"
 
 ## 疑问
 * /resources/templates/book/search/result.html中为什么使用search_movie_result的结果?
+* message功能BUG：关闭右下角弹窗后再打开，时间戳和信息顺序都会改变，时间戳会变得相同
+* BUG：网页头部鼠标从音乐、电影、设置直接移开后，下拉菜单不会自动关闭
+* movieWishMapper里面的selectByUid和selectByMovieid方法没有写对应的sql语句？

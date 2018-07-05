@@ -12,25 +12,24 @@ import com.rsh.coviewer.movie.maoyan.Hot;
 import com.rsh.coviewer.movie.maoyan.cinema.Cinemas;
 import com.rsh.coviewer.movie.maoyan.cinemas.Cinema;
 import com.rsh.coviewer.movie.maoyan.movie.MovieInformation;
+import com.rsh.coviewer.pojo.MovieWish;
 import com.rsh.coviewer.pojo.MyFriends;
 import com.rsh.coviewer.pojo.UserInformation;
 import com.rsh.coviewer.service.*;
 import com.rsh.coviewer.tool.HttpUtils;
 import com.rsh.coviewer.tool.POSTtoJSON;
+import com.rsh.coviewer.tool.SensitivewordFilter;
 import com.rsh.coviewer.tool.Tool;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.sound.midi.Soundbank;
+import java.util.*;
 
 /**
  * @DESCRIPTION : 电影的链接控制
@@ -58,6 +57,8 @@ public class MovieController {
     private CollectionCriticService collectionCriticService;
     @Resource
     private GoodCriticService goodCriticService;
+    @Resource
+    private MovieWishService movieWishService;
 
     //模糊查询电影信息。没有在.html找到映射，未实现？
     @RequestMapping(value = "/search/movie/result")
@@ -164,6 +165,56 @@ public class MovieController {
         getUserCounts(model, userInformation.getId());
         getFriend(model, userInformation.getId());
         return "/movie/celebrity";
+    }
+
+    //添加到想看
+    @RequestMapping(value = "/add/movie/wish/{movieid}")
+    @ResponseBody
+    public Map addMovieWish(HttpServletRequest request, @RequestParam String movie_id) {
+        Integer new_movie_id = Integer.valueOf(movie_id);
+        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+        Map<String, String> map = new HashMap<>();
+        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
+            map.put("result", "0");
+            return map;
+        }
+        MovieWish movieWish = new MovieWish();
+        movieWish.setUid((Integer) request.getSession().getAttribute("uid"));
+        movieWish.setAllow((short) 1);
+        movieWish.setModified(new Date());
+        movieWish.setTime(new Date());
+        movieWish.setMovieid(new_movie_id);
+        int id_result = movieWishService.insert(movieWish);
+        if (id_result != 1) {
+            map.put("result", "0");
+            return map;
+        }
+        map.put("result", "1");
+        return map;
+    }
+
+    //查看想看的人的列表
+    @RequestMapping(value = "/check/movie/wish/{movieid}", method = RequestMethod.GET)
+    @ResponseBody
+    public List checkMovieWish(HttpServletRequest request, @RequestParam String movieid) {
+        Integer new_movie_id = Integer.valueOf(movieid);
+        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+        List<MovieWish> wishlist = new ArrayList<>();
+        List<Integer> uidList = new ArrayList<>();
+        List<UserInformation> userInformationList = new ArrayList<>();
+        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
+            return wishlist;
+        }
+        Map<String, Integer> map = new HashMap<>();
+        map.put("movieid", new_movie_id);
+        wishlist = movieWishService.selectByMovieid(map);
+        for (MovieWish m : wishlist) {
+            uidList.add(m.getUid());//获取想看这部电影的所有用户id
+        }
+        userInformationList = userInformationService.getAllForeach(uidList);//根据用户id获取所有想看的用户的信息
+        String testString = userInformation.toString();
+        System.out.println(testString);
+        return userInformationList;
     }
 
     //即将上映的电影
