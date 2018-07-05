@@ -1,10 +1,13 @@
 package com.rsh.coviewer.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.rsh.coviewer.bean.*;
+import com.rsh.coviewer.movie.maoyan.Hot;
 import com.rsh.coviewer.pojo.*;
 import com.rsh.coviewer.redis.IRedisUtils;
 import com.rsh.coviewer.service.*;
 import com.rsh.coviewer.token.TokenProccessor;
+import com.rsh.coviewer.tool.HttpUtils;
 import com.rsh.coviewer.tool.SensitivewordFilter;
 import com.rsh.coviewer.tool.Tool;
 import lombok.extern.slf4j.Slf4j;
@@ -109,13 +112,33 @@ public class UserInformationController {
                 hasCookie = true;
                 redisUtils.set(request.getRequestedSessionId(), "1");
             }
-            return "redirect:/my";
+            return "redirect:/homepage";
         } else {
             model.addAttribute("username", username);
             model.addAttribute("error", "账号或者密码错误");
             hasCookie = false;
             return login(model, request, response);
         }
+    }
+    //添加的主页
+    @RequestMapping(value = "/homepage")
+    public String homepage(Model model, HttpServletRequest request) {
+        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
+            return "redirect:/login";
+        }
+        model.addAttribute("userInformation", userInformation);
+        String url = "http://m.maoyan.com/movie/list.json?type=hot&offset=0&limit=20";
+        String result = HttpUtils.maoyan(url);
+        Hot hot = JSON.parseObject(result, Hot.class);
+        model.addAttribute("movie", hot);
+//        model.addAttribute("movie_name", "正在上映");
+        model.addAttribute("action", 3);
+        model.addAttribute("myFriends", getMyFriends(userInformation.getId()));
+        model.addAttribute("userInformation", userInformation);
+        model.addAttribute("username", userInformation.getName());
+        model.addAttribute("autograph", userInformation.getAutograph());
+        return "homepage";
     }
 
     @RequestMapping(value = "/main")
