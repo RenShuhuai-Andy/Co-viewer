@@ -168,22 +168,12 @@ public class MovieController {
         return "/movie/celebrity";
     }
 
-    //测试
-//    @RequestMapping(value = "/add/movie/wish")
-//    public String addMovieWish(HttpServletRequest request) {
-//        String movie_id = request.getParameter("id");
-//        System.out.println("id: " + movie_id);
-//        System.out.println("ok");
-//        return "redirect:/login";
-//    }
-
     //添加到想看
     @RequestMapping(value = "/add/movie/wish")
     public Map addMovieWish(HttpServletRequest request) {
 //        System.out.println("add/movie/wish:ok");
         String movieid = request.getParameter("id");
         Integer new_movie_id = Integer.valueOf(movieid);
-        System.out.println("movieid:"+new_movie_id);
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
 //        System.out.println("userinfo:"+userInformation.toString());
         Map<String, String> map = new HashMap<>();
@@ -197,6 +187,7 @@ public class MovieController {
         movieWish.setModified(new Date());
         movieWish.setTime(new Date());
         movieWish.setMovieid(new_movie_id);
+        System.out.println("movieid:" + movieWish.getMovieid());
         int id_result = movieWishService.insert(movieWish);
         if (id_result != 1) {
             map.put("result", "0");
@@ -213,6 +204,7 @@ public class MovieController {
         String movieid = request.getParameter("id");
         Integer new_movie_id = Integer.valueOf(movieid);
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+        System.out.println("username:"+userInformation.getName());
         List<MovieWish> wishlist = new ArrayList<>();
         List<Integer> uidList = new ArrayList<>();
         List<UserInformation> userInformationList = new ArrayList<>();
@@ -221,12 +213,13 @@ public class MovieController {
         }
         Map<String, Integer> map = new HashMap<>();
         map.put("movieid", new_movie_id);
+        map.put("start", 0);
         wishlist = movieWishService.selectByMovieid(map);
         for (MovieWish m : wishlist) {
             uidList.add(m.getUid());//获取想看这部电影的所有用户id
         }
         userInformationList = userInformationService.getAllForeach(uidList);//根据用户id获取所有想看的用户的信息
-        String testString = userInformation.toString();
+        String testString = userInformation.getName();
         System.out.println(testString);
         return userInformationList;
     }
