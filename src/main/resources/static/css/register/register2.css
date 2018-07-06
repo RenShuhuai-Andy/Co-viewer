@@ -4,6 +4,7 @@ body, html {
     padding: 0;
     height: 90%;
     background: #f4f4f4;
+    background-image: url(../../image/backImg.jpg);
     /*font-family: KaiTi;*/
     /*background: url(../../image/6.jpg) 50% fixed;*/
     opacity: .9;
@@ -22,6 +23,7 @@ a:HOVER {
 }
 
 .main {
+	border-radius: 10px 10px 10px 10px;
     box-shadow: 1px 1px 20px #000000;
     position: relative;
     width: 1040px;
