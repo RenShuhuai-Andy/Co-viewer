@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.persistence.Id;
 import javax.servlet.http.HttpServletRequest;
 import javax.sound.midi.Soundbank;
 import java.util.*;
@@ -167,12 +168,24 @@ public class MovieController {
         return "/movie/celebrity";
     }
 
+    //测试
+//    @RequestMapping(value = "/add/movie/wish")
+//    public String addMovieWish(HttpServletRequest request) {
+//        String movie_id = request.getParameter("id");
+//        System.out.println("id: " + movie_id);
+//        System.out.println("ok");
+//        return "redirect:/login";
+//    }
+
     //添加到想看
-    @RequestMapping(value = "/add/movie/wish/{movieid}")
-    @ResponseBody
-    public Map addMovieWish(HttpServletRequest request, @RequestParam String movie_id) {
-        Integer new_movie_id = Integer.valueOf(movie_id);
+    @RequestMapping(value = "/add/movie/wish")
+    public Map addMovieWish(HttpServletRequest request) {
+//        System.out.println("add/movie/wish:ok");
+        String movieid = request.getParameter("id");
+        Integer new_movie_id = Integer.valueOf(movieid);
+        System.out.println("movieid:"+new_movie_id);
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+//        System.out.println("userinfo:"+userInformation.toString());
         Map<String, String> map = new HashMap<>();
         if (Tool.getInstance().isNullOrEmpty(userInformation)) {
             map.put("result", "0");
@@ -194,9 +207,10 @@ public class MovieController {
     }
 
     //查看想看的人的列表
-    @RequestMapping(value = "/check/movie/wish/{movieid}", method = RequestMethod.GET)
-    @ResponseBody
-    public List checkMovieWish(HttpServletRequest request, @RequestParam String movieid) {
+    @RequestMapping(value = "/check/movie/wish")
+    public List checkMovieWish(HttpServletRequest request) {
+        System.out.println("check/movie/wish:ok");
+        String movieid = request.getParameter("id");
         Integer new_movie_id = Integer.valueOf(movieid);
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
         List<MovieWish> wishlist = new ArrayList<>();

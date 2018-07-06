@@ -60,12 +60,12 @@
                             <!--<a th:href="'/cinemas/'+${movie.getData().getMovieDetailModel().getId()}"><button id="booking">网上订票</button></a>-->
                             <a th:id="${movie.getData().getMovieDetailModel().getId()}" onclick="window.open('http://maoyan.com/cinemas?movieId='+id)"><button id="booking">猫眼订票</button></a>
                         </div>
-                        <!--<div style="padding: 1.5em"><span class="movie_show"></span>-->
-                            <!--<a th:href="'/add/movie/wish/'+${movie.getData().getMovieDetailModel().getId()}"><button id="adding">添加到想看</button></a>-->
-                        <!--</div>-->
-                        <!--<div style="padding: 1.5em"><span class="movie_show"></span>-->
-                            <!--<a th:href="'/check/movie/wish/'+${movie.getData().getMovieDetailModel().getId()}"><button id="checking">查看想看的人的列表</button></a>-->
-                        <!--</div>-->
+                        <div style="padding: 1.5em"><span class="movie_show"></span>
+                            <a th:href="'/add/movie/wish?id=' + ${movie.getData().getMovieDetailModel().getId()} "><button id="adding">添加到想看</button></a>
+                        </div>
+                        <div style="padding: 1.5em"><span class="movie_show"></span>
+                            <a th:href="'/check/movie/wish?id=' + ${movie.getData().getMovieDetailModel().getId()}"><button id="checking">查看想看的人的列表</button></a>
+                        </div>
                     </div>
                 </div>
                 <div class="movie_desc" style="padding: .5em 1em">
