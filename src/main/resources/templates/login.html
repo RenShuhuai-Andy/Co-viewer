@@ -11,8 +11,8 @@
         body {
             font-family: "Open Sans", sans-serif;
             height: 100vh;
-            background: url("/image/saber.jpg") 50% fixed;
-            background-size: cover;
+            background-image: url(../static/image/4.jpg);
+            /*background-size: cover;*/
         }
 
         * {
@@ -29,15 +29,16 @@
             width: 100%;
             min-height: 100%;
             padding: 20px;
-            background: rgba(4, 40, 68, 0.85);
         }
 
         .login {
+        	top: -250px;
+        	right: 32%;
             border-radius: 2px 2px 5px 5px;
             padding: 10px 20px 20px 20px;
             width: 90%;
             max-width: 320px;
-            background: #ffffff;
+            background:#FFFFFF;
             position: relative;
             padding-bottom: 80px;
             box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
@@ -110,12 +111,15 @@
         }
 
         .login .title {
+        	display: inline-block;
             color: #444;
             font-size: 1.2em;
             font-weight: bold;
+            font-family: "franklin gothic heavy";
             margin: 10px 0 30px 0;
             border-bottom: 1px solid #eee;
             padding-bottom: 20px;
+            /*padding-left: 10px;*/
         }
 
         .login button {
@@ -185,7 +189,7 @@
 
 <div class="wrapper">
     <form class="login" action="home" method="post">
-        <p class="title">账号登录</p>
+        <p class="title"><img src="../static/image/logo.PNG" style="margin-bottom: -50px; margin-top: -50px;"></p>
         <p style="color: red" class="tip" th:text="${error}"></p>
         <input type="hidden" name="token" value="" th:value="${token}"/>
         <input type="text" placeholder="账号" autofocus="autofocus" name="username" class="username"/>
@@ -195,8 +199,8 @@
             <input type="checkbox" name="remember_me" style="float: left;width: 15px;" value="on"/>记住我一周
         </div>
         <i class="fa fa-key"></i>
-        <a href="forget1">忘记密码?</a>
-        <a href="register" style="right:25px;position:absolute">注册账号</a>
+        <a href="forget/forgetPassword.html">忘记密码?</a>
+        <a href="registered/register.html" style="right:25px;position:absolute">注册账号</a>
         <button type="button" class="login-in">
             <!--<i class="spinner"></i>-->
             <span>登录</span>
