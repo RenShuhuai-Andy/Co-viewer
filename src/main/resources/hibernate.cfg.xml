@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/movie</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+      <mapping class="com.rsh.coviewer.springdata.entity.WangyialbumEntity"/>
+    <mapping class="com.rsh.coviewer.springdata.entity.WangyimusicEntity"/>
+    <mapping class="com.rsh.coviewer.springdata.entity.WangyisingerEntity"/>
+      <mapping class="com.rsh.coviewer.task.entity.MytaskEntity"/>
+      <mapping class="com.rsh.coviewer.task.entity.MytaskerrorEntity"/>
+      <mapping class="com.rsh.coviewer.task.entity.MytasklogEntity"/>
+      <mapping class="com.rsh.coviewer.book.entity.BookEntity"/>
+      <mapping class="com.rsh.coviewer.springdata.admin.entity.UserinformationEntity"/>
+      <mapping class="com.rsh.coviewer.springdata.admin.entity.AdmininformationEntity"/>
+      <mapping class="com.rsh.coviewer.springdata.admin.entity.CriticReportEntity"/>
+      <mapping class="com.rsh.coviewer.springdata.admin.entity.AdminactionEntity"/>
+      <mapping class="com.rsh.coviewer.springdata.entity.WangyilrcEntity"/>
+      <mapping class="com.rsh.coviewer.springdata.entity.WangyicontentEntity"/>
+      <!-- <property name="connection.username"/> -->
+    <!-- <property name="connection.password"/> -->
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

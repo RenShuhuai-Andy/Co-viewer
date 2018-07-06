@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${title}">热门音乐</title>
+    <link rel="icon" href="/image/title.ico" type="image/x-icon"/>
+    <link href="/css/all.css" rel="stylesheet"/>
+    <script src="/js/jquery-3.0.0.js"></script>
+</head>
+<script src="/js/layer.js"></script>
+<script src="/js/home/home.js"></script>
+<script src="/js/all.js"></script>
+<style>
+    audio {
+        margin-top: 100px;
+    }
+
+    .music_img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .music_main {
+        /*margin-top:3em;*/
+        width: 300px;
+        /*display: inline-block;*/
+    }
+
+    .music_img_div {
+        display: inline;
+        float: left;
+    }
+
+    .music_content {
+        /*margin-left: 1em;*/
+    }
+
+    .music_songname, .music_singername, .music_albumname, .music_publishtime, .music_alias, .music_option, .play, .stop {
+        max-width: 600px;
+        width: 600px;
+        margin: .5em 1em;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .play {
+        cursor: pointer;
+    }
+
+    .play:hover {
+        color: #b4d66b;
+    }
+
+    .stop {
+        cursor: pointer;
+    }
+
+    .stop:hover {
+        color: #b4d66b;
+    }
+
+    .g-wrap12 {
+        padding: 0 30px 40px 40px;
+    }
+
+    .u-title-1 {
+        /*height: 33px;*/
+    }
+
+    .u-title {
+        height: 40px;
+        border-bottom: 2px solid #c20c0c;
+    }
+
+    .m-table {
+        width: 100%;
+        /*border: 1px solid #d9d9d9;*/
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        table-layout: fixed;
+    }
+
+    thead {
+        display: table-header-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
+
+    tr {
+        display: table-row;
+        vertical-align: inherit;
+        border-color: inherit;
+    }
+
+    tbody {
+        display: table-row-group;
+        vertical-align: middle;
+        border-color: inherit;
+    }
+
+    .m-table-rank .first {
+        width: 77px;
+    }
+
+    .m-table th .wp {
+        height: 18px;
+        line-height: 18px;
+        padding: 8px 10px;
+        background-position: 0 -56px;
+    }
+
+    .m-table .even td {
+        background-color: #ffffff;
+        text-align: center;
+    }
+
+    .m-table td {
+        padding: 6px 10px;
+        line-height: 18px;
+        text-align: left;
+    }
+
+    .m-table-rank td.rank {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+</style>
+<body>
+<!--导航栏-->
+<header th:include="header :: copy"></header>
+<div id="main">
+    <audio controls="controls" id="audio_play" hidden="hidden">
+        <source src="/music/kxfTLNo3G81518238857571.mp3" type="audio/mpeg" id="audio_source"/>
+    </audio>
+    <div style="padding-top: 3em;clear: both"></div>
+
+    <div class="g-wrap12" style="width: 800px">
+        <div class="u-title u-title-1 f-cb">
+            <div id="song-list-pre-cache">
+                <table class="m-table m-table-rank">
+                    <thead>
+                    <tr>
+                        <th style="width: 50px;"></th>
+                        <th class="wp">标题</th>
+                        <th class="wp">歌手</th>
+                        <th class="wp">专辑</th>
+                        <th class="wp">发布时间</th>
+                    </tr>
+                    </thead>
+                    <tbody th:with="i=0">
+                    <tr th:each="o : ${entity}" class="even">
+                        <td class="music_img play" th:title="${o.url}"><img th:src="${o.picurl}" class="music_img"/>
+                        </td>
+                        <td class="hd rank play" th:title="${o.url}">&nbsp;<span class="music_songname"
+                                                                                 th:text="${o.songname}">图片+音乐</span>
+                        </td>
+                        <td class="hd music_singername play" th:title="${o.url}" th:text="${o.singername}">歌手</td>
+                        <td class="hd music_albumname play" th:title="${o.url}" th:text="${o.albumname}">专辑</td>
+                        <td class="hd music_publishtime play" th:title="${o.url}" th:text="${o.publishtime}">发布时间</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div style="clear: both"></div>
+</div>
+<footer>
+    <div>
+        <button class="go_to_top" value=""></button>
+    </div>
+</footer>
+
+</body>
+<script>
+    $(function () {
+        var isPlay = true;
+        var globUrl = "";
+        var $audio = $("#audio_play")[0];
+        $(".play").click(function () {
+            $audio.pause();
+            var url = $(this).attr("title");
+            $("#audio_source").attr("src", url);
+            $audio.load();
+            if (globUrl === url) {
+                if (isPlay === true) {
+                    $audio.play();
+                    isPlay = false;
+                } else {
+                    $audio.pause();
+                    isPlay = true;
+                }
+            } else {
+                globUrl = url;
+                $audio.play();
+                isPlay = false;
+            }
+        });
+        $("#audio_play").bind('ended', function () {
+        });
+        $(".stop").click(function () {
+            $audio.pause();
+        });
+    })
+</script>
+</html>
