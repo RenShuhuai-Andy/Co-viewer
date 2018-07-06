@@ -87,3 +87,4 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
 * message功能BUG：关闭右下角弹窗后再打开，时间戳和信息顺序都会改变，时间戳会变得相同
 * BUG：网页头部鼠标从音乐、电影、设置直接移开后，下拉菜单不会自动关闭
 * movieWishMapper里面的selectByUid和selectByMovieid方法没有写对应的sql语句？
+* 修改了UserInformationController.java中的login函数，注释掉了password = Tool.getInstance().getMD5(password);不知道这个函数如何使用？
