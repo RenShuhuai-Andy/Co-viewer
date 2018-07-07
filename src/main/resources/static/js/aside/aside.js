@@ -36,9 +36,9 @@ $(function () {
             alert("请输入搜索的内容！！");
             return;
         }
-        var $searchMovie = $("#searchMovie");
-        $("#movie_action").attr("value", "movie");
-        $searchMovie.submit();
+        var $searchResult = $("#searchResult");
+        $("#search_action").attr("value", "movie");
+        $searchResult.submit();
     });
     $('img.search_publish').click(function () {
         var text = $search.val();
@@ -46,9 +46,9 @@ $(function () {
             alert("请输入搜索的内容！！");
             return;
         }
-        var $searchMovie = $("#searchMovie");
-        $("#movie_action").attr("value", "critic");
-        $searchMovie.submit();
+        var $searchResult = $("#searchResult");
+        $("#search_action").attr("value", "critic");
+        $searchResult.submit();
     });
     $('img.search_user').click(function () {
         var text = $search.val();
@@ -56,9 +56,9 @@ $(function () {
             alert("请输入搜索的内容！！");
             return;
         }
-        var $searchMovie = $("#searchMovie");
-        $("#movie_action").attr("value", "user");
-        $searchMovie.submit();
+        var $searchResult = $("#searchResult");
+        $("#search_action").attr("value", "user");
+        $searchResult.submit();
     });
     $('img.search_book').click(function () {
         var text = $search.val();
@@ -66,9 +66,9 @@ $(function () {
             alert("请输入搜索的内容！！");
             return;
         }
-        var $searchMovie = $("#searchMovie");
-        $("#movie_action").attr("value", "book");
-        $searchMovie.submit();
+        var $searchResult = $("#searchResult");
+        $("#search_action").attr("value", "book");
+        $searchResult.submit();
     });
     $('img.search_music').click(function () {
         var text = $search.val();
@@ -76,8 +76,8 @@ $(function () {
             alert("请输入搜索的内容！！");
             return;
         }
-        var $searchMovie = $("#searchMovie");
-        $("#movie_action").attr("value", "music");
-        $searchMovie.submit();
+        var $searchResult = $("#searchResult");
+        $("#search_action").attr("value", "music");
+        $searchResult.submit();
     });
 });

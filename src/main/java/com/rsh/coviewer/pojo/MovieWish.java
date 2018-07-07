@@ -29,7 +29,7 @@ public class MovieWish implements Serializable {
         return movieid;
     }
 
-    public void setMovieid(Integer pid) {
+    public void setMovieid(Integer movieid) {
         this.movieid = movieid;
     }
 
