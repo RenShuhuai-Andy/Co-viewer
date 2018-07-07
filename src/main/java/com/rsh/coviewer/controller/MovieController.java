@@ -9,8 +9,6 @@ import com.rsh.coviewer.bean.OneSubject;
 import com.rsh.coviewer.movie.celebrity.Celebrity;
 import com.rsh.coviewer.movie.celebrity.USbox;
 import com.rsh.coviewer.movie.maoyan.Hot;
-import com.rsh.coviewer.movie.maoyan.cinema.Cinemas;
-import com.rsh.coviewer.movie.maoyan.cinemas.Cinema;
 import com.rsh.coviewer.movie.maoyan.movie.MovieInformation;
 import com.rsh.coviewer.pojo.MovieWish;
 import com.rsh.coviewer.pojo.MyFriends;
@@ -61,7 +59,7 @@ public class MovieController {
     @Resource
     private MovieWishService movieWishService;
 
-    //模糊查询电影信息。没有在.html找到映射，未实现？
+    //模糊查询电影信息
     @RequestMapping(value = "/search/movie/result")
     public String searchMovieResult(Model model, HttpServletRequest request, @ModelAttribute("name") String q) {
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
@@ -84,7 +82,7 @@ public class MovieController {
         return "/movie/SearchMovieResult";
     }
 
-    //查看电影信息。没有在.html找到映射，未实现？
+    //查看电影信息
     @RequestMapping(value = "/search/movie/information")
     public String searchMovie(Model model, HttpServletRequest request, @RequestParam String id) {
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
@@ -316,59 +314,6 @@ public class MovieController {
         getUserCounts(model, userInformation.getId());
         getFriend(model, userInformation.getId());
         return "/movie/us_box";
-    }
-
-    //附近电影院，方法未使用
-    @RequestMapping(value = "/cinemas/{id}")
-    public String cinemas(Model model, HttpServletRequest request, @PathVariable String id) {
-        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
-        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
-            return "redirect:../login";
-        }
-        model.addAttribute("userInformation", userInformation);
-
-//猫眼接口不可用
-//        String url = "http://maoyan.com/cinemas?movieId=" + id;
-//        String result = HttpUtils.maoyan(url);
-//        System.out.println("result: " + result);
-//        Cinema cinema = JSON.parseObject(result, Cinema.class);
-//
-//
-//        url = "http://m.maoyan.com/movie/" + id + ".json";
-//        result = HttpUtils.maoyan(url);
-//        MovieInformation information = JSON.parseObject(result, MovieInformation.class);
-//        String img = information.getData().getMovieDetailModel().getImg();
-//        model.addAttribute("img", img);
-//        model.addAttribute("movie", cinema);
-//        model.addAttribute("action", 3);
-//        System.out.println("model: " + model);
-//        getUserCounts(model, userInformation.getId());
-//        getFriend(model, userInformation.getId());
-        return "/movie/cinemas";
-    }
-
-    //单个影院，方法未使用
-    @RequestMapping(value = "/cinema/{id}")
-    public String cinema(@PathVariable String id, Model model, HttpServletRequest request) {
-        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
-        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
-            return "redirect:../login";
-        }
-        model.addAttribute("userInformation", userInformation);
-        String url = "http://m.maoyan.com/showtime/wrap.json?cinemaid=" + id;
-        String result = HttpUtils.maoyan(url);
-        Cinemas cinema = JSON.parseObject(result, Cinemas.class);
-
-//        url = "http://m.maoyan.com/movie/"+id+".json";
-//        result = HttpUtils.maoyan(url);
-//        MovieInformation information = JSON.parseObject(result, MovieInformation.class);
-//        String img = information.getData().getMovieDetailModel().getImg();
-//        model.addAttribute("img", img);
-        model.addAttribute("movie", cinema);
-        model.addAttribute("action", 3);
-        getUserCounts(model, userInformation.getId());
-        getFriend(model, userInformation.getId());
-        return "/movie/cinema";
     }
 
     //获得点赞数量，收藏数量，评论数量

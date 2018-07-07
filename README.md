@@ -36,12 +36,11 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
   * USbox:北美票房
   * Work:？？？
 * maoyan:json猫眼条目信息
-  * cinema:单个影院信息  
-    *...
-  * cinemas:多个影院信息  
-    *...
-  * movie:电影信息（？？？）  
-    *...
+  * movie:电影信息 
+    * Control
+    * Data
+    * Hot
+    * Movies
 #### bean包:回显的实体类  
 * Acts:演员
 * Casts:演员表
