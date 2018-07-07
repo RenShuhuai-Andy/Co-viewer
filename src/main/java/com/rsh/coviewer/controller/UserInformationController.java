@@ -710,8 +710,8 @@ public class UserInformationController {
             int id = getUserInformationId(phone);//用户id
             if (id == -1) return false;
             String psw = userPasswordService.getPassword(id).getPassword();//获取用户的真实密码
-//            System.out.println("真实密码："+psw);
-//            System.out.println("输入密码："+password);
+            System.out.println("真实密码："+psw);
+            System.out.println("输入密码："+password);
 //            password = Tool.getInstance().getMD5(password);
             if (password.equals(psw)) {
                 result = true;

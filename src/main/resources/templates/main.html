@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8"/>
     <title>main</title>
-    <link rel="stylesheet" href="../static/css/home/home.css"/>
-    <link rel="stylesheet" href="../static/css/all.css"/>
+    <link rel="stylesheet" href="/css/home/home.css"/>
+    <link rel="stylesheet" href="/css/all.css"/>
 </head>
-<script src="../static/js/jquery-3.0.0.js"></script>
-<script src="../static/js/layer.js"></script>
-<script src="../static/js/home/home.js"></script>
-<script src="../static/js/all.js"></script>
+<script src="/js/jquery-3.0.0.js"></script>
+<script src="/js/layer.js"></script>
+<script src="/js/home/home.js"></script>
+<script src="/js/all.js"></script>
 <script>
     $(function () {
         var height = $(window).height();
@@ -22,7 +22,7 @@
 <body>
 <!--头文件                       已废弃    -->
 <header class="">
-    <link rel="stylesheet" href="../static/css/header.css"/>
+    <link rel="stylesheet" href="/css/header.css"/>
     <div>
         <input type="hidden" th:value="${action}"/>
         <input type="hidden" th:if="${userInformation.phone}==null" id="user_name_a" value="wsk"/>
