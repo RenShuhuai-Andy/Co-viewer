@@ -7,7 +7,13 @@
     <link rel="icon" href="/image/title.ico"/>
 </head>
 <script src="../../static/js/jquery-3.0.0.js"></script>
-<body>
+<body style="display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            min-height: 100%;
+            padding: 20px;
+            background: rgba(4, 40, 68, 0.85);">
 <div class="main">
     <header>&nbsp;
         <ul>
@@ -18,12 +24,12 @@
                 <span class="current-num">1</span>
                 <span class="current">验证手机号码</span>
             </li>
-            <img src="../../static/image/point_right.jpg" style="margin-left: -40px; margin-bottom: -20px;"/>
+            <img src="../../static/image/right.png" style="margin-left: -40px; margin-right: -10px; margin-bottom: -20px;"/>
             <li class="current2">
                 <span class="current-num">2</span>
                 <span class="current">填写用户名和密码</span>
             </li>
-            <img src="../../static/image/point_right.jpg"  style="margin-bottom: -20px;"/>
+            <img src="../../static/image/right.png"  style="margin-right: -20px; margin-left: -20px; margin-bottom: -20px;"/>
             <li class="c">
                 <span class="current-num">3</span>
                 <span class="current">验证成功</span>
@@ -35,7 +41,7 @@
                 <input type="hidden" name="password" th:value="${password}"/>
                 <input type="hidden" name="token" th:value="${token}"/>
                 <input type="hidden" name="username" th:value="${phone}"/>
-                <span class="text" th:text="${phone}+' ,注册成功'" style="margin-left: 60px;">注册成功！</span>
+                <span class="text" th:text="${phone}+' ,注册成功'" style="margin-left: 40px;font-family: '楷体'; font-size: 36px;">注册成功！</span>
                 <br/>
                 <input type="submit" class="next" value="立即登录！" id="next"/>
             </form>

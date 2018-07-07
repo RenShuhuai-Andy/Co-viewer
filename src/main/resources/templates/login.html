@@ -11,7 +11,7 @@
         body {
             font-family: "Open Sans", sans-serif;
             height: 100vh;
-            background-image: url(../static/image/backImg.jpg);
+            background-image: url(../static/image/saber.jpg);
             background-size: cover;
         }
 
@@ -29,12 +29,13 @@
             width: 100%;
             min-height: 100%;
             padding: 20px;
+            background: rgba(4, 40, 68, 0.85);
         }
 
         .login {
         	/*top: -250px;
         	right: 32%;*/
-            border-radius: 2px 2px 5px 5px;
+            border-radius: 10px 10px 10px 10px;
             padding: 10px 20px 20px 20px;
             width: 90%;
             max-width: 320px;
@@ -189,7 +190,7 @@
 
 <div class="wrapper">
     <form class="login" action="home" method="post">
-        <p class="title"><img src="../static/image/logo.PNG" style="margin-bottom: -50px; margin-top: -50px;"></p>
+        <p class="title"><img src="../static/image/logo1.PNG" style="margin-bottom: -50px; margin-top: -50px;"></p>
         <p style="color: red" class="tip" th:text="${error}"></p>
         <input type="hidden" name="token" value="" th:value="${token}"/>
         <input type="text" placeholder="账号" autofocus="autofocus" name="username" class="username"/>
