@@ -1,15 +1,12 @@
 @CHARSET "UTF-8";
 body, html {
-    margin: 0;
-    padding: 0;
-    height: 90%;
-    background: #f4f4f4;
-    /*font-family: KaiTi;*/
-    background: url("../../image/saber.jpg") 50% fixed;
-    opacity: .9;
-    background-size: cover;
-    font-weight: 700;
-    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;;
+    height: 800px;
+	background-image: url(../../image/saber.jpg);
+	opacity: .9;
+	background-size: cover;
+	font-weight: 700;
+	font-size: 18px;
+	font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
 }
 
 a {
@@ -22,13 +19,11 @@ a:HOVER {
 }
 
 .main {
-    box-shadow: 1px 1px 20px #000000;
-    position: relative;
-    width: 1040px;
-    min-height: 100%;
-    height: 100%;
-    background: #ffffff;
-    margin: 50px auto;
+	border-radius: 10px 10px 10px 10px;
+	width:1040px;
+    padding-bottom: 80px;
+	background:#ffffff;
+	margin: 50px auto ;
 }
 
 .header {
