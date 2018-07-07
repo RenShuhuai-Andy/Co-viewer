@@ -1,0 +1,409 @@
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+.hd-account dt {
+    float: left;
+    margin-right: 10px;
+}
+
+.hd-account dd {
+    float: left;
+    line-height: 16px;
+}
+
+a:link, a:visited {
+    color: #227dc5;
+    text-decoration: none;
+}
+a:link, a:visited {
+    color: #369;
+    text-decoration: none;
+}
+
+#Header.hd-wraper {
+    height: 50px;
+}
+
+.hd-account dd {
+    float: left;
+    line-height: 16px;
+}
+
+.hd-account .hd-avatar {
+    border-radius: 2px;
+}
+fieldset, img {
+    border: 0;
+}
+img {
+    border: 0;
+    -ms-interpolation-mode: bicubic;
+    vertical-align: middle;
+}
+fieldset, img {
+    border: 0;
+}
+img[Attributes Style] {
+    width: 30px;
+    height: 30px;
+}
+
+.hd-wraper {
+    height: 50px;
+    background: #227dc5;
+    position: relative;
+    z-index: 120;
+}
+
+.hd-fixed-wraper {
+    background: #227dc5;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.clearfix {
+}
+
+.hd-main {
+    height: 50px;
+    margin-left: 80px;
+}
+
+.clearfix:after {
+    content: " ";
+    display: block;
+    clear: both;
+}
+
+.hd-account .hd-name:visited {
+    color: #fff;
+}
+.hd-account .hd-name {
+    font-weight: bold;
+    color: #fff;
+    max-width: 70px;
+    _width: auto;
+    overflow: hidden;
+    display: block;
+}
+
+.hd-wraper .hd-logo {
+    height: 40px;
+    width: 183px;
+    position: absolute;
+    left: 20px;
+    top: 0;
+    zoom: 1;
+    background: url(../image/CoViewer.png) no-repeat left top;
+    background-size: 173px 40px;
+    margin: 5px;
+}
+
+.mainfree .hd-nav, .mainfree .frame-nav-inner {
+    width: 760px;
+}
+
+.hd-nav {
+	margin-left: 140px;
+    width: 760px;
+    margin-right: 200px auto;
+    padding: 10px 0 0;
+    position: relative;
+}
+
+.hd-search {
+    float: left;
+    position: relative;
+}
+
+.hd-search .hd-search-input {
+    height: 24px;
+    width: 470px;
+    padding: 3px 20px 3px 10px;
+    font-size: 14px;
+    line-height: 24px;
+    background: #1c68a4;
+    border: 0;
+    color: #fff;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+}
+
+
+.hd-search .hd-search-btn {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 5px;
+    top: 6px;
+}
+
+.hd-search .hd-search-btn, .icon-notic-bob, .fd-nav-icon, .app-nav-item-cur .app-link {
+    background: url(http://a.xnimg.cn/nx/core/theme/skin/mainframe/frame-icons-v4.png) no-repeat;
+}
+
+button, input {
+    line-height: normal;
+}
+button, input, select, textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+}
+html, button, input, select, textarea {
+    font-family: STHeiti,'Microsoft YaHei',arial,\5b8b\4f53;
+}
+input, textarea, select {
+}
+input, textarea, select {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.hd-search .hd-search-btn {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    right: 5px;
+    top: 6px;
+}
+
+.hd-search .hd-search-btn, .icon-notic-bob, .fd-nav-icon, .app-nav-item-cur .app-link {
+    background: url(http://a.xnimg.cn/nx/core/theme/skin/mainframe/frame-icons-v4.png) no-repeat;
+}
+a {
+    color: #227dc5;
+}
+a {
+    text-decoration: none;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.hd-account {
+    float: left;
+    margin-left: 20px;
+}
+
+#webpager .wp_fold_webpager {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background-position: 12px -583px;
+    top: 55px;
+    left: 0px;
+    background-color: #000;
+    border-radius: 3px 0 0 3px;
+    opacity: .15;
+    filter: alpha(Opacity=15);
+    -moz-opacity: .15;
+}
+#webpager .wp_fold_webpager {
+    display: block;
+}
+
+/*通知栏*/
+#webpager {
+    display: block;
+    width: 240px;
+    position: fixed;
+    float: right;
+    top: 0;
+    right: 0;
+    text-decoration: none;
+    z-index: 131;
+    color: #333;
+}
+/*通知栏顶层*/
+#webpager .wp_top_tabs {
+    height: 50px;
+    box-shadow: -3px -3px 6px 0 #1d69a6;
+    background-color:#227dc5;
+    overflow: hidden;
+}
+/*图片位置*/
+#webpager .png {
+    background: url(http://s.xnimg.cn/nx/webpager/res/webpager_v1.0_24.png);
+    background-repeat: no-repeat;
+}
+
+#webpager .wp_top_bubbles {
+    position: absolute;
+    top: 58px;
+    right: 10px;
+    width: 242px;
+}
+
+/*顶栏隐藏*/
+#webpager .wp_top_tabs .fold {
+    width: 70px;
+    height: 50px;
+    background-position: 10px -2224px;
+    float: right;
+}
+/*通知栏顶层部件*/
+#webpager .wp_top_tabs .wp_top_tab {
+    height: 50px;
+    background-color: #227dc5;
+    float: left;
+    position: relative;
+    cursor: pointer;
+}
+/*通知栏顶层部件被选中变色*/
+#webpager .wp_top_tabs .wp_top_tab.on {
+    background-color: #3d96dc;
+}
+/**/
+#webpager .wp-none {
+    display: none;
+}
+
+
+/*通知部件*/
+#webpager .wp_top_tabs .notify {
+    width: 55px;
+    background-position: 17px -38px;
+    display: inline-table;
+}    
+/*通知部件被选中*/    
+#webpager .wp_top_tabs .notify.on {
+    width: 130px;
+    background-position: 17px -86px;
+}
+
+/*好友部件*/
+#webpager .wp_top_tabs .friends {
+    display: inline-table;
+}
+/*好友部件右移*/
+#webpager .wp_top_tabs .friends.right {
+    width: 55px;
+    background-position: 17px -138px;
+}
+/*好友部件被选中*/
+#webpager .wp_top_tabs .friends.on {
+    width: 130px;
+    background-position: 17px -191px;
+}
+/*好友部件左移*/
+#webpager .wp_top_tabs .friends.left {
+    width: 55px;
+    background-position: 17px -138px;
+}
+/*会话部件*/
+#webpager .wp_top_tabs .recent {
+    width: 55px;
+    background-position: 17px -250px;
+    display: inline-table;
+}
+/*会话部件被选中*/
+#webpager .wp_top_tabs .recent.on {
+    width: 130px;
+    background-position: 17px -303px;
+}
+#webpager .wp_top_tabs .wp_top_tab .title {
+    display: none;
+}
+
+#webpager .wp_top_tabs .wp_top_tab.on .title {
+    display: inline;
+    color: #fff;
+    font-size: 15px;
+    line-height: 50px;
+    padding-left: 50px;
+}
+
+#webpager #buddy {
+    position: relative;
+    float: right;
+    width: 240px;
+    height: 600px;
+    overflow: hidden;
+    box-shadow: -3px 0 6px -2px #999;
+    border-left: solid 1px #b2b2b2\9;
+}
+
+
+
+#webpager #buddy .wp_tab {
+    height: 100%;
+    float: left;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: #fff;
+    width: 240px;
+    overflow: hidden;
+}
+
+#webpager #buddy .wp_tab.notify {
+    z-index: 1;
+}
+
+#webpager #buddy .wp_tab.friends {
+    z-index: 2;
+}
+
+#webpager #buddy .wp_collector.search {
+    float: left;
+}
+#webpager #buddy .wp_collector.status {
+    width: 240px;
+    float: left;
+    color: #000;
+    font-size: 14px;
+    text-align: center;
+    height: 41px;
+    line-height: 38px;
+}
+
+#webpager #buddy .wp_collector_box {
+    height: 100%;
+    float: left;
+    width: 240px;
+    -ms-overflow-x: hidden;
+    overflow-x: hidden;
+    -ms-overflow-y: auto;
+    overflow-y: auto;
+    position: relative;
+    background: #fff;
+}
+
+
+
+#webpager #buddy .wp_collector li.wp_no_result {
+    border: none;
+    text-align: center;
+    min-height: 50px;
+    line-height: 50px;
+    color: #666;
+    cursor: default;
+}
+
+#webpager #notifyTab .wp_collector li {
+    cursor: default;
+}
+#webpager #buddy .wp_collector li {
+    width: 240px;
+    min-height: 70px;
+    border-bottom: solid 1px #e9edf0;
+    float: left;
+    cursor: pointer;
+}
+#webpager li {
+    list-style: none;
+}
