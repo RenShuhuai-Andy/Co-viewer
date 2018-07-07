@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>页框</title>
+		<link rel="stylesheet" type="text/css" href="../static/css/webpager.css"/>
+		<script type="text/javascript" src="../static/js/webpager.js" ></script>
+		<!--通知栏块-->
+		<style>
+			function backEachThree(){
+				window.setInterval("back()",3000);	
+			}
+			function back(){
+				back=document.getElementById("back");
+				back.style.left="0px";
+			}
+
+		</style>
+	</head>
+	<body>
+		
+		<div id="Header" class="hd-wraper" >
+			<div class="hd-fixed-wraper clearfix" style="width: 1027px;">
+				<div class="hd-main">
+					<h1 class="hd-logo">
+						<a href="" title=""></a>
+					</h1>
+					<div class="hd-nav clearfix">
+						<div class="hd-search">
+							<input type="text" name="" id="hd-search" class="hd-search-input" value="" placeholder="输入电影以搜索" />
+							<a href="" class="hd-search-btn"></a>
+						</div>
+						<dl class="hd-account clearfix" >
+							<dt>
+								<a th:href="">
+									<img src="../static/image/1.jpg" class="hd-avatar" width="30" height="30" >
+								</a>
+							</dt>
+							<dd>
+								<a href="" class="hd-name" th:text="${userInformation.id}">id</a>
+								<a class="hd-name" ></a>
+							</dd>
+						</dl>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<div id="webpager" style="width: 70px;opacity: 1;" class="fold" onmouseover="overWenpager()"> 
+			<div id="backBtm" class="wp_fold_webpager png" style="display: none;left: 0px;" onclick="clickBack()"></div>
+			<div class="wp_top_bubbles" style="display: none;"></div>
+			<div class="wp_top_tabs">
+				<div id="fold" class="wp_top_tab fold png" data-tab="fold" style="display: block;" onclick="clickFold()">
+					
+				</div>
+				<div id="notifyTopTab" class="wp_top_tab notify png on wp-none" data-tab = "notify"  onclick="clickNotifyTopTab()" style="display: none;">
+					<span class="	title">通知</span>
+				</div>
+				<div id="friendsTopTab" class="wp_top_tab friends png right wp-none"data-tab = "friends" onclick="clickFriendsTopTab()" style="display: none;">
+					<span class="title">好友</span>
+				</div>
+				<div id="recentTopTab" class="wp_top_tab recent png wp-none" data-tab = "recent"  onclick="clickRecentTopTab()" style="display: none;">
+					<span class="title">消息</span>
+				</div>
+			</div>
+			<div id="buddy" class="wp-none" style="height: 681px;display: none;">
+				<div id="notifyTab" class="wp_tab notify">
+					<div class="wp_collector_box">
+						<div id="notify">
+							
+						</div>
+					</div>
+				</div>
+				<div id="friendsTab" class="wp_tab friends">
+					<div class="wp_collector_box" style="height: 613px;">
+						
+					</div>
+				</div>
+				<div id="recentTab">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
