@@ -9,28 +9,26 @@ import com.rsh.coviewer.bean.OneSubject;
 import com.rsh.coviewer.movie.celebrity.Celebrity;
 import com.rsh.coviewer.movie.celebrity.USbox;
 import com.rsh.coviewer.movie.maoyan.Hot;
-import com.rsh.coviewer.movie.maoyan.cinema.Cinemas;
-import com.rsh.coviewer.movie.maoyan.cinemas.Cinema;
 import com.rsh.coviewer.movie.maoyan.movie.MovieInformation;
+import com.rsh.coviewer.pojo.MovieWish;
 import com.rsh.coviewer.pojo.MyFriends;
 import com.rsh.coviewer.pojo.UserInformation;
 import com.rsh.coviewer.service.*;
 import com.rsh.coviewer.tool.HttpUtils;
 import com.rsh.coviewer.tool.POSTtoJSON;
+import com.rsh.coviewer.tool.SensitivewordFilter;
 import com.rsh.coviewer.tool.Tool;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import javax.persistence.Id;
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import javax.sound.midi.Soundbank;
+import java.util.*;
 
 /**
  * @DESCRIPTION : 电影的链接控制
@@ -58,8 +56,10 @@ public class MovieController {
     private CollectionCriticService collectionCriticService;
     @Resource
     private GoodCriticService goodCriticService;
+    @Resource
+    private MovieWishService movieWishService;
 
-    //模糊查询电影信息。没有在.html找到映射，未实现？
+    //模糊查询电影信息
     @RequestMapping(value = "/search/movie/result")
     public String searchMovieResult(Model model, HttpServletRequest request, @ModelAttribute("name") String q) {
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
@@ -82,7 +82,7 @@ public class MovieController {
         return "/movie/SearchMovieResult";
     }
 
-    //查看电影信息。没有在.html找到映射，未实现？
+    //查看电影信息
     @RequestMapping(value = "/search/movie/information")
     public String searchMovie(Model model, HttpServletRequest request, @RequestParam String id) {
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
@@ -164,6 +164,62 @@ public class MovieController {
         getUserCounts(model, userInformation.getId());
         getFriend(model, userInformation.getId());
         return "/movie/celebrity";
+    }
+
+    //添加到想看
+    @RequestMapping(value = "/add/movie/wish")
+    public Map addMovieWish(HttpServletRequest request) {
+//        System.out.println("add/movie/wish:ok");
+        String movieid = request.getParameter("id");
+        Integer new_movie_id = Integer.valueOf(movieid);
+        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+//        System.out.println("userinfo:"+userInformation.toString());
+        Map<String, String> map = new HashMap<>();
+        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
+            map.put("result", "0");
+            return map;
+        }
+        MovieWish movieWish = new MovieWish();
+        movieWish.setUid((Integer) request.getSession().getAttribute("uid"));
+        movieWish.setAllow((short) 1);
+        movieWish.setModified(new Date());
+        movieWish.setTime(new Date());
+        movieWish.setMovieid(new_movie_id);
+        System.out.println("movieid:" + movieWish.getMovieid());
+        int id_result = movieWishService.insert(movieWish);
+        if (id_result != 1) {
+            map.put("result", "0");
+            return map;
+        }
+        map.put("result", "1");
+        return map;
+    }
+
+    //查看想看的人的列表
+    @RequestMapping(value = "/check/movie/wish")
+    public List checkMovieWish(HttpServletRequest request) {
+        System.out.println("check/movie/wish:ok");
+        String movieid = request.getParameter("id");
+        Integer new_movie_id = Integer.valueOf(movieid);
+        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+        System.out.println("username:"+userInformation.getName());
+        List<MovieWish> wishlist = new ArrayList<>();
+        List<Integer> uidList = new ArrayList<>();
+        List<UserInformation> userInformationList = new ArrayList<>();
+        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
+            return wishlist;
+        }
+        Map<String, Integer> map = new HashMap<>();
+        map.put("movieid", new_movie_id);
+        map.put("start", 0);
+        wishlist = movieWishService.selectByMovieid(map);
+        for (MovieWish m : wishlist) {
+            uidList.add(m.getUid());//获取想看这部电影的所有用户id
+        }
+        userInformationList = userInformationService.getAllForeach(uidList);//根据用户id获取所有想看的用户的信息
+        String testString = userInformation.getName();
+        System.out.println(testString);
+        return userInformationList;
     }
 
     //即将上映的电影
@@ -258,59 +314,6 @@ public class MovieController {
         getUserCounts(model, userInformation.getId());
         getFriend(model, userInformation.getId());
         return "/movie/us_box";
-    }
-
-    //附近电影院，方法未使用
-    @RequestMapping(value = "/cinemas/{id}")
-    public String cinemas(Model model, HttpServletRequest request, @PathVariable String id) {
-        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
-        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
-            return "redirect:../login";
-        }
-        model.addAttribute("userInformation", userInformation);
-
-//猫眼接口不可用
-//        String url = "http://maoyan.com/cinemas?movieId=" + id;
-//        String result = HttpUtils.maoyan(url);
-//        System.out.println("result: " + result);
-//        Cinema cinema = JSON.parseObject(result, Cinema.class);
-//
-//
-//        url = "http://m.maoyan.com/movie/" + id + ".json";
-//        result = HttpUtils.maoyan(url);
-//        MovieInformation information = JSON.parseObject(result, MovieInformation.class);
-//        String img = information.getData().getMovieDetailModel().getImg();
-//        model.addAttribute("img", img);
-//        model.addAttribute("movie", cinema);
-//        model.addAttribute("action", 3);
-//        System.out.println("model: " + model);
-//        getUserCounts(model, userInformation.getId());
-//        getFriend(model, userInformation.getId());
-        return "/movie/cinemas";
-    }
-
-    //单个影院，方法未使用
-    @RequestMapping(value = "/cinema/{id}")
-    public String cinema(@PathVariable String id, Model model, HttpServletRequest request) {
-        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
-        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
-            return "redirect:../login";
-        }
-        model.addAttribute("userInformation", userInformation);
-        String url = "http://m.maoyan.com/showtime/wrap.json?cinemaid=" + id;
-        String result = HttpUtils.maoyan(url);
-        Cinemas cinema = JSON.parseObject(result, Cinemas.class);
-
-//        url = "http://m.maoyan.com/movie/"+id+".json";
-//        result = HttpUtils.maoyan(url);
-//        MovieInformation information = JSON.parseObject(result, MovieInformation.class);
-//        String img = information.getData().getMovieDetailModel().getImg();
-//        model.addAttribute("img", img);
-        model.addAttribute("movie", cinema);
-        model.addAttribute("action", 3);
-        getUserCounts(model, userInformation.getId());
-        getFriend(model, userInformation.getId());
-        return "/movie/cinema";
     }
 
     //获得点赞数量，收藏数量，评论数量

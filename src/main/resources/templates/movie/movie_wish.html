@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${movie.getData().getMovieDetailModel().getNm()}+'(瓢虫微生活)'">详情</title>
+    <link rel="stylesheet" href="/css/movieInformation.css"/>
+    <link rel="stylesheet" href="/css/all.css"/>
+    <link href="/image/CoViewer.png" rel="icon"/>
+    <!--<script src="/js/jquery-3.0.0.js"></script>-->
+    <!--<script src="/js/layer.js"></script>-->
+</head>
+<script src="/js/information/movieWish.js"></script>
+<body>
+<header th:include="header :: copy"></header>
+<div class="all_content" style="">
+    <main>
+        <div>
+
+            <div style="padding: 1.5em"><span class="movie_show"></span>
+                <a th:href="'/add/movie/wish'"><button id="adding">添加到想看</button></a>
+            </div>
+            <div style="padding: 1.5em"><span class="movie_show"></span>
+                <a th:href="'/check/movie/wish'"><button id="checking">查看想看的人的列表</button></a>
+            </div>
+
+        </div>
+        <footer>
+            <div>
+                <button class="go_to_top" value=""></button>
+            </div>
+        </footer>
+</body>
+</html>

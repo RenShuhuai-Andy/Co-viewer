@@ -73,7 +73,7 @@ public class SearchController {
     //搜索电影详细信息
     @RequestMapping(value = "/search/result")
 //    @ResponseBody
-    public String searchMovie(@RequestParam String name, @RequestParam String action,
+    public String searchResult(@RequestParam String name, @RequestParam String action,
                               Model model, HttpServletRequest request, RedirectAttributes attributes) throws UnsupportedEncodingException {
         if (Tool.getInstance().isNullOrEmpty(action) || Tool.getInstance().isNullOrEmpty(name)) {
             return "redirect:/login";

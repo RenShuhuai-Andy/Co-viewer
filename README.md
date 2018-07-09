@@ -36,12 +36,11 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
   * USbox:北美票房
   * Work:？？？
 * maoyan:json猫眼条目信息
-  * cinema:单个影院信息  
-    *...
-  * cinemas:多个影院信息  
-    *...
-  * movie:电影信息（？？？）  
-    *...
+  * movie:电影信息 
+    * Control
+    * Data
+    * Hot
+    * Movies
 #### bean包:回显的实体类  
 * Acts:演员
 * Casts:演员表
@@ -52,7 +51,7 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
    
  ---
  
- #### pojo包:电影相关的数据库实体--service包:电影相关的服务操作-resources下的mapping包:mybatis相关的xml文件  
+ #### pojo包:电影相关的数据库实体--service包:电影相关的服务操作--resources下的mapping包:mybatis相关的xml文件  
  service下定义了9个服务接口，lmpl文件夹下是服务接口的实现类  
  1. CollectionCritic:被收藏的影评--CollectionCriticService
  2. CommentCritic:影评--CommentCriticSercive
@@ -76,10 +75,29 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
 #### controller包：链接控制--resources下的templates包
 * CriticController:影评的链接控制，包括发表、查找、收藏、点赞--criticInformation.html
 * MovieController:电影的链接控制，包括查看电影、影院、电影人信息--movieInformation.html
-
+  
+## 网页框架
+* main.html显示???
+* home.html显示主页，主要设计主页的左下方一大块
+* aside.html显示侧边栏
+  
 ## 使用到的API
 * 豆瓣图书：https://developers.douban.com/wiki/?title=book_v2
 * 豆瓣电影：https://developers.douban.com/wiki/?title=movie_v2
+* 猫眼电影："http://m.maoyan.com/movie/" + id + ".json"
 
 ## 疑问
 * /resources/templates/book/search/result.html中为什么使用search_movie_result的结果?
+* message功能BUG：关闭右下角弹窗后再打开，时间戳和信息顺序都会改变，时间戳会变得相同
+* BUG：网页头部鼠标从音乐、电影、设置直接移开后，下拉菜单不会自动关闭
+* movieWishMapper里面的selectByUid和selectByMovieid方法没有写对应的sql语句？
+* 修改了UserInformationController.java中的login函数，注释掉了password = Tool.getInstance().getMD5(password);不知道这个函数如何使用？
+* 图书搜索有bug
+
+## 修改
+all.css-9：#b4d66b->#DCC7AA 主体外围绿改粉
+       -79:#9fbe5d->#eac67a 主体内部深绿改橙
+       -50：#000->#eae3ea 头部按钮文本黑改白
+header.css-33:#fff->#6B7A8F->#44b4ce 头部白改暗蓝改蓝
+          -2\93\105\109\113\117:#9fbe5d->#F7882F->#f7c33e 头部按钮高亮 绿改橙改黄
+header.html:注释了12-16文本

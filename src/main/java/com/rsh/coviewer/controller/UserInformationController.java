@@ -1,10 +1,13 @@
 package com.rsh.coviewer.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.rsh.coviewer.bean.*;
+import com.rsh.coviewer.movie.maoyan.Hot;
 import com.rsh.coviewer.pojo.*;
 import com.rsh.coviewer.redis.IRedisUtils;
 import com.rsh.coviewer.service.*;
 import com.rsh.coviewer.token.TokenProccessor;
+import com.rsh.coviewer.tool.HttpUtils;
 import com.rsh.coviewer.tool.SensitivewordFilter;
 import com.rsh.coviewer.tool.Tool;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.*;
 
 /**
- * Created by wsk1103 on 2017/4/26.
+ * Created by rsh on 2018/7/6.
  */
 @Slf4j
 @Controller
@@ -63,7 +66,7 @@ public class UserInformationController {
     @RequestMapping(value = "home", method = RequestMethod.GET)
     public String home(HttpServletRequest request, Model model) {
 //        String phone_session = (String) request.getSession().getAttribute("phone_session");
-//        String password_session = (String) request.getSession().getAttribute("password_session");
+//        String password_session = (String) request.getSession().getAttribute("password_session");//=null
         if (!Tool.getInstance().isNullOrEmpty(request.getSession().getAttribute("userInformation"))) {
             return toHome(model, request);
         }
@@ -76,7 +79,7 @@ public class UserInformationController {
         System.out.println(new Date() + ",run home");
         //if user login successful,the web will build a session which has a allow_token,the allow_token is used to discern user`s identity in the future.
 //        String phone_session = (String) request.getSession().getAttribute("phone_session");
-//        String password_session = (String) request.getSession().getAttribute("password_session");
+        String password_session = (String) request.getSession().getAttribute("password_session");//=null
         UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
         if (!Tool.getInstance().isNullOrEmpty(userInformation)) {
             toHome(model, request);
@@ -109,13 +112,33 @@ public class UserInformationController {
                 hasCookie = true;
                 redisUtils.set(request.getRequestedSessionId(), "1");
             }
-            return "redirect:/my";
+            return "redirect:/homepage";
         } else {
             model.addAttribute("username", username);
             model.addAttribute("error", "账号或者密码错误");
             hasCookie = false;
             return login(model, request, response);
         }
+    }
+    //添加的主页
+    @RequestMapping(value = "/homepage")
+    public String homepage(Model model, HttpServletRequest request) {
+        UserInformation userInformation = (UserInformation) request.getSession().getAttribute("userInformation");
+        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
+            return "redirect:/login";
+        }
+        model.addAttribute("userInformation", userInformation);
+        String url = "http://m.maoyan.com/movie/list.json?type=hot&offset=0&limit=20";
+        String result = HttpUtils.maoyan(url);
+        Hot hot = JSON.parseObject(result, Hot.class);
+        model.addAttribute("movie", hot);
+//        model.addAttribute("movie_name", "正在上映");
+        model.addAttribute("action", 3);
+        model.addAttribute("myFriends", getMyFriends(userInformation.getId()));
+        model.addAttribute("userInformation", userInformation);
+        model.addAttribute("username", userInformation.getName());
+        model.addAttribute("autograph", userInformation.getAutograph());
+        return "homepage";
     }
 
     @RequestMapping(value = "/main")
@@ -662,6 +685,7 @@ public class UserInformationController {
         return criticComments;
     }
 
+    //根据用户信息获取用户id。如用户信息为空，返回0；不允许获取返回-1
     private int getUserInformationId(String phone) {
         int id = 0;
         try {
@@ -679,13 +703,16 @@ public class UserInformationController {
         return id;
     }
 
+    //登录
     private boolean login(String phone, String password, HttpServletRequest request) {
         boolean result = false;
         try {
-            int id = getUserInformationId(phone);
+            int id = getUserInformationId(phone);//用户id
             if (id == -1) return false;
-            String psw = userPasswordService.getPassword(id).getPassword();
-            password = Tool.getInstance().getMD5(password);
+            String psw = userPasswordService.getPassword(id).getPassword();//获取用户的真实密码
+            System.out.println("真实密码："+psw);
+            System.out.println("输入密码："+password);
+//            password = Tool.getInstance().getMD5(password);
             if (password.equals(psw)) {
                 result = true;
                 request.getSession().setAttribute("uid", id);

@@ -417,6 +417,7 @@ $(document).on("click", "button.chang_btn2", function () {
     })
 });
 
+//将时间戳转为字符串
 function timeStamp2String() {
     var datetime = new Date();
     // datetime.setTime(time);

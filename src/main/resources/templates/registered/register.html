@@ -3,62 +3,64 @@
 <head>
     <title>注册账号</title>
     <meta charset="UTF-8"/>
-    <link rel="icon" href="/image/title.ico"/>
+    <link rel="icon" href="/image/CoViewer.png"/>
     <link rel="stylesheet" type="text/css" href="/css/register/register2.css"/>
 </head>
 <script src="/js/jquery-3.0.0.js"></script>
 <script src="/js/register/register2.js">
 </script>
-<body>
+<body style="display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            min-height: 100%;
+            padding: 60px 0 150px 0;
+            background: rgba(4, 40, 68, 0.85);">
 <div class="main">
     <div class="page">
         <header class="header">
-            <br/>
-            <br/>
-            <br/>
-            <br/>
             <ul>
                 <li>
                     <span class="current-num">1</span>
                     <span class="current">验证手机号码</span>
                 </li>
-                <span class="cc">--></span>
+                <img src="/image/right.png" style="margin-left: -40px; margin-right: -35px;"/>
                 <li class="c">
                     <span class="number">2</span>填写用户名和密码
                 </li>
-                <span class="cc">--></span>
+                <img src="/image/right.png"  style="margin-left: -40px; margin-right: -30px;"/>
                 <li class="c">
                     <span class="number">3</span>验证成功
                 </li>
             </ul>
         </header>
-        <div class="register">
+        <div>
             <form action="register2" method="post" class="form" id="form2">
                 <input type="hidden" name="token" value="${token}" th:value="${token}"/>
-                <div style="margin: 10px;">
+                <div style="margin: 10px; font-size: 20px;">
                     &nbsp;&nbsp;&nbsp;&nbsp;手机号码：
                     <input type="tel" class="phone" id="phone" placeholder="请输入手机号码" autofocus="autofocus" name="phone"/>
                 </div>
-                <div id="toolphone" class="toolphone" style="color: red;display: none;">请输入正确的手机号码</div>
-                <div class="toolphone2" style="color: red;display: none;margin-left: 110px">该手机已经被注册</div>
-                <div style="margin: 10px;">
+                <div id="toolphone" class="toolphone" style="color: red;display: none; margin-left: 140px; font-size: 8px; letter-spacing: 2px;">请输入正确的手机号码</div>
+                <div class="toolphone2" style="color: red;display: none;margin-left: 130px; font-size: 8px; letter-spacing: 2px;">该手机已经被注册</div>
+                <div style="margin: 10px; font-size: 20px;">
                     图片验证码：
                     <input type="text" class="photo" id="photo" placeholder="请输入验证码" name="photo"/>
                     <!--<img alt="" src="image.jsp" id="identity" align="absmiddle"/>-->
                     <span>7834</span>
                     <a href="javascript:loadimage();" class="chang-code" id="btn">
-                        <span style="color: red">看不清？换一张</span>
+                        <span style="color: gray; font-size: 16px;">看不清？换一张</span>
                     </a>
                 </div>
-                <div id="toolphoto" class="toolphoto" style="color: red;display: none;">图片验证码错误</div>
-                <div class="toolphoto2" style="color: red;display: none;margin-left: 110px">图片验证码不能为空</div>
-                <div style="margin: 10px;">
+                <div id="toolphoto" class="toolphoto" style="color: red;display: none; margin-left: 140px; font-size: 8px; letter-spacing: 2px;">图片验证码错误</div>
+                <div class="toolphoto2" style="color: red;display: none;margin-left: 140px; font-size: 8px; letter-spacing: 2px;">图片验证码不能为空</div>
+                <div style="margin: 10px; font-size: 20px;">
                     手机验证码：
                     <input type="text" class="code-phone" id="code_phone"  placeholder="请输入验证码" name="code_phone"/>
                     <input type="button" class="get" value="发送验证码" id="get"/>
                 </div>
-                <div id="toolnum" class="toolnum" style="color: red;display: none">手机验证码错误</div>
-                <div class="toolnum2" style="color: red;display: none;margin-left: 110px">手机验证码不能为空</div>
+                <div id="toolnum" class="toolnum" style="color: red;display: none; margin-left: 140px; font-size: 8px; letter-spacing: 2px;">手机验证码错误</div>
+                <div class="toolnum2" style="color: red;display: none;margin-left: 140px; font-size: 8px; letter-spacing: 2px;">手机验证码不能为空</div>
                 <span class="text">
                     <input id="agree" class="agree" name="agree" type="checkbox" checked="checked" style="width:20px;height:12px"/>
                     <span class="receive">我已仔细阅读并接受</span>

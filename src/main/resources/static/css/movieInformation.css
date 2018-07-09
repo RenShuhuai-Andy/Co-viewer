@@ -11,7 +11,7 @@ main {
     padding-bottom: 2em;
 }
 h1{
-    color:#a1c15e;
+    color:#6b7a8f;
     text-align: center;
 }
 div.movie_cover {
@@ -249,7 +249,7 @@ div.close_img_tip:hover {
     font-weight: 500;
 }
 #booking, .booking{
-    background: #b4d66b;
+    background: #6b7a8f;
     width: 100px;
     height: 3em;
     border-radius: .5em;

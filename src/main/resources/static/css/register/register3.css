@@ -1,15 +1,10 @@
 @CHARSET "UTF-8";
 body,html{
-	margin: 0;
-	padding: 0;
-	height: 90%;
-	background: #f4f4f4;
-	/*font-family: KaiTi;*/
-	background: url("../../image/saber.jpg") 50% fixed;
+	background-image: url(../../image/saber.jpg);
 	opacity: .9;
 	background-size: cover;
 	font-weight: 700;
-	font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;;
+	font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
 }
 a{
 	color:#1E88C7;
@@ -19,12 +14,10 @@ a:HOVER {
 	text-decoration: underline;
 }
 .main{
-	box-shadow: 1px 1px 20px #000000;
+	border-radius: 10px 10px 10px 10px;
 	width:1040px;
-	min-height: 100%;
-	/*height: 100%;*/
 	background:#ffffff;
-	margin: 50px auto;
+	margin: 50px auto ;
 }
 header{
 	padding: 0;
@@ -98,4 +91,9 @@ form .next{
 	font-size:18px;
 }
 
-
+img {
+    border-radius: 5px;
+    vertical-align: middle;
+    height: 38px;
+    width: 100px;
+}
