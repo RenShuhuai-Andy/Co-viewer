@@ -11,10 +11,4 @@ public class Hot implements Serializable {
     private Control control;
     private int status;
     private Data data;
-<<<<<<< HEAD
-    public Data getData(){
-        return data;
-    }
-=======
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }

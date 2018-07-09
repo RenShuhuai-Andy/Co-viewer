@@ -3,11 +3,6 @@ package com.rsh.coviewer.controller;
 import com.alibaba.fastjson.JSON;
 import com.rsh.coviewer.bean.*;
 import com.rsh.coviewer.movie.maoyan.Hot;
-<<<<<<< HEAD
-import com.rsh.coviewer.movie.maoyan.Movies;
-import com.rsh.coviewer.movie.maoyan.movie.MovieInformation;
-=======
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 import com.rsh.coviewer.pojo.*;
 import com.rsh.coviewer.redis.IRedisUtils;
 import com.rsh.coviewer.service.*;
@@ -136,27 +131,6 @@ public class UserInformationController {
         String url = "http://m.maoyan.com/movie/list.json?type=hot&offset=0&limit=20";
         String result = HttpUtils.maoyan(url);
         Hot hot = JSON.parseObject(result, Hot.class);
-<<<<<<< HEAD
-
-        //修改
-        Iterator iterator=hot.getData().getMovies().iterator();
-        ArrayList <String> image=new ArrayList<>();
-        ArrayList <MovieInformation> movieInformations=new ArrayList<>();
-        while(iterator.hasNext()){
-            Movies movie=(Movies)iterator.next();
-            String id=movie.getId();
-            url = "http://m.maoyan.com/movie/" + id + ".json";
-            result = HttpUtils.maoyan(url);
-            MovieInformation information = JSON.parseObject(result, MovieInformation.class);
-            String img=information.getData().getMovieDetailModel().getId();
-            movieInformations.add(information);
-            image.add(img);
-        }
-        model.addAttribute("image", image);
-        model.addAttribute("movieInfomation", movieInformations);
-
-=======
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
         model.addAttribute("movie", hot);
 //        model.addAttribute("movie_name", "正在上映");
         model.addAttribute("action", 3);

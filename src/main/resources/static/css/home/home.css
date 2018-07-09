@@ -54,11 +54,7 @@ main div div span.movie_name {
 }
 
 .movie_name_text:focus {
-<<<<<<< HEAD
-    /*border: 1px solid #9fbe5d;*/
-=======
     /*border: 1px solid #6b7a8f;*/
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
     /*cursor: pointer;*/
 }
 
@@ -89,11 +85,7 @@ main div div textarea.release_message {
 }
 
 main div div textarea.release_message:active {
-<<<<<<< HEAD
-    /*border: 1px solid #9fbe5d;*/
-=======
     /*border: 1px solid #6b7a8f;*/
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 main div div a.movie_image_upload {
@@ -208,11 +200,7 @@ main div div div div.friends_action {
 /*}*/
 
 /*.friends_collection_current {*/
-<<<<<<< HEAD
-    /*color: #9fbe5d;*/
-=======
     /*color: #6b7a8f;*/
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 /*}*/
 
 /*.friends_comment {*/
@@ -224,20 +212,12 @@ main div div div div.friends_action {
 /*}*/
 
 /*.friends_good_current {*/
-<<<<<<< HEAD
-    /*color: #9fbe5d;*/
-=======
     /*color: #6b7a8f;*/
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 /*}*/
 
 .friends_comment:hover, .friends_collection:hover, .friends_good:hover {
     /*text-shadow: 1px 1px 1px black;*/
-<<<<<<< HEAD
-    color: #9fbe5d;
-=======
     color: #6b7a8f;
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 .friends_time {
@@ -280,11 +260,7 @@ div.wsk {
 }
 
 .show_action:hover, .action_menu:hover {
-<<<<<<< HEAD
-    color: #9fbe5d;
-=======
     color: #6b7a8f;
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 .action_menu {
@@ -324,11 +300,7 @@ div.close_img_tip {
 }
 
 div.close_img_tip:hover {
-<<<<<<< HEAD
-    color: #9fbe5d;
-=======
     color: #6b7a8f;
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 /*img.friends_image_header:hover, .friends_username:hover {*/
@@ -379,11 +351,7 @@ div.close_img_tip:hover {
 
 /*span.all_friends_username {*/
 /*padding: 0;*/
-<<<<<<< HEAD
-/*color: #76a513;*/
-=======
 /*color: #6b7a8f;*/
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 /*cursor: pointer;*/
 /*}*/
 

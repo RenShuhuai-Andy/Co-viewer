@@ -16,17 +16,6 @@ public class MovieWish implements Serializable {
     private Integer uid;
     private Date modified;
     private short allow;
-<<<<<<< HEAD
-    private String name;
-
-    public void setName(String name){
-        this.name=name;
-    }
-    public String getName(){
-        return name;
-    }
-=======
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 
     public Integer getId() {
         return id;

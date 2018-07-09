@@ -96,11 +96,7 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
 
 ## 修改
 all.css-9：#b4d66b->#DCC7AA 主体外围绿改粉
-<<<<<<< HEAD
-       -79:#9fbe5d->#eac67a 主体内部深绿改黄
-=======
        -79:#9fbe5d->#eac67a 主体内部深绿改橙
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
        -50：#000->#eae3ea 头部按钮文本黑改白
 header.css-33:#fff->#6B7A8F->#44b4ce 头部白改暗蓝改蓝
           -2\93\105\109\113\117:#9fbe5d->#F7882F->#f7c33e 头部按钮高亮 绿改橙改黄

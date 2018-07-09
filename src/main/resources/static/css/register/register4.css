@@ -1,10 +1,6 @@
 @CHARSET "UTF-8";
 body,html{
-<<<<<<< HEAD
-	height: 800px;
-=======
 /*	height: 800px;*/
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 	background-image: url(../../image/saber.jpg);
 	opacity: .9;
 	background-size: cover;
@@ -22,10 +18,6 @@ a:HOVER {
 .main{
 	border-radius: 10px 10px 10px 10px;
 	width:1040px;
-<<<<<<< HEAD
-    padding-bottom: 80px;
-=======
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 	background:#ffffff;
 	margin: 50px auto ;
 }
@@ -84,12 +76,9 @@ header .current{
 	font-weight: 900;
 }
 
-<<<<<<< HEAD
-=======
 img{
 	border-radius:5px;
 	vertical-align:middle;
 	height: 38px;
 	width:100px;
 }
->>>>>>> 55c43114c5785def4f972292851a70cab1028956

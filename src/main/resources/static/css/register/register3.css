@@ -1,9 +1,5 @@
 @CHARSET "UTF-8";
 body,html{
-<<<<<<< HEAD
-	height: 800px;
-=======
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 	background-image: url(../../image/saber.jpg);
 	opacity: .9;
 	background-size: cover;
@@ -95,13 +91,9 @@ form .next{
 	font-size:18px;
 }
 
-<<<<<<< HEAD
-
-=======
 img {
     border-radius: 5px;
     vertical-align: middle;
     height: 38px;
     width: 100px;
 }
->>>>>>> 55c43114c5785def4f972292851a70cab1028956

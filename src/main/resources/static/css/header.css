@@ -1,9 +1,5 @@
 .header_current_li {
-<<<<<<< HEAD
-    color: #F7c33e;
-=======
     color: #6b7a8f;
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 /*a {*/
@@ -34,11 +30,7 @@ header div ul {
     box-shadow: 5px 5px 3px #666666;
     margin-top: 0px;
     position: absolute;
-<<<<<<< HEAD
-    background: #44b4ce;
-=======
     background: #fff;
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
     width: 100%;
     padding-left: 50%;
     /*margin-left: -251px;*/
@@ -71,13 +63,8 @@ ul li.header_forum, ul li.header_home, ul li.header_hot, ul li.header_set, ul li
     display: none;
     list-style: none;
     text-align: center;
-<<<<<<< HEAD
-    width: 95px;
-    box-shadow: 2px 2px 10px black;
-=======
     width: 105px;
     box-shadow: 2px 2px 10px #6b7a8f;
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 img.img_hot, img.img_home, img.img_forum, img.img_information, img.img_set, img.img_home_current,
@@ -103,11 +90,7 @@ img.img_home_current {
 }
 
 .header_current {
-<<<<<<< HEAD
-    color: #F7c33e;
-=======
     color: #6b7a8f;
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 .clearfix {
@@ -119,21 +102,6 @@ img.img_home_current {
 }
 
 .show_header li span:hover {
-<<<<<<< HEAD
-    color: #F7c33e;
-}
-
-ul li.hot_menu_li a:hover {
-    color: #F7c33e;
-}
-
-a:hover {
-    color: #F7c33e;
-}
-
-a.header_forum_current:hover {
-    color: #F7c33e;
-=======
     color: #6b7a8f;
 }
 
@@ -147,7 +115,6 @@ a:hover {
 
 a.header_forum_current:hover {
     color: #6b7a8f;
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 img.header_title_img {
