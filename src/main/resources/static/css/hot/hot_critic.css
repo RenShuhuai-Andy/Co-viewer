@@ -51,7 +51,7 @@ main div div span.movie_name {
 }
 
 .movie_name_text:focus {
-    border: 1px solid #9fbe5d;
+    border: 1px solid #6b7a8f;
 }
 
 .movie_release {
@@ -79,7 +79,7 @@ main div div textarea.release_message {
 }
 
 main div div textarea.release_message:active {
-    border: 1px solid #9fbe5d;
+    border: 1px solid #6b7a8f;
 }
 
 main div div a.movie_image_upload {
@@ -203,7 +203,7 @@ main div div div div.friends_action {
 
 .friends_comment:hover, .friends_collection:hover, .friends_good:hover,.friends_collection_current,.friends_good_current {
     /*text-shadow: 1px 1px 1px black;*/
-    color: #9fbe5d;
+    color: #6b7a8f;
 }
 
 .friends_time {
@@ -247,7 +247,7 @@ div.wsk {
 }
 
 .show_action:hover {
-    color: #9fbe5d;
+    color: #6b7a8f;
 }
 
 .action_menu {
@@ -257,7 +257,7 @@ div.wsk {
 }
 
 .action_menu:hover {
-    color: #9fbe5d;
+    color: #6b7a8f;
 }
 
 div.show_action_menu {
@@ -308,5 +308,5 @@ div.close_img_tip {
 }
 
 div.close_img_tip:hover {
-    color: #9fbe5d;
+    color: #6b7a8f;
 }
