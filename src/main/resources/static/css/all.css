@@ -6,7 +6,7 @@ body {
     margin: 0 auto;
     font-size: 16px;
     width: 100%;
-    background: #b4d66b;
+    background: #DCC7AA;
     background-size: cover;
     opacity: .9;
     font-weight: 700;
@@ -76,7 +76,7 @@ div.all_content, iframe.all_content {
     top: 2.3em;
     width: 1000px;
     margin: 0 auto;
-    background: #9fbe5d;
+    background: #eac67a;
     min-height: 900px;
     padding-right: 3em;
 }

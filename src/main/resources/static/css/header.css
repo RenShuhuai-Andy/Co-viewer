@@ -1,5 +1,5 @@
 .header_current_li {
-    color: #9fbe5d;
+    color: #F7c33e;
 }
 
 /*a {*/
@@ -30,7 +30,7 @@ header div ul {
     box-shadow: 5px 5px 3px #666666;
     margin-top: 0px;
     position: absolute;
-    background: #fff;
+    background: #44b4ce;
     width: 100%;
     padding-left: 50%;
     /*margin-left: -251px;*/
@@ -90,7 +90,7 @@ img.img_home_current {
 }
 
 .header_current {
-    color: #9fbe5d;
+    color: #F7c33e;
 }
 
 .clearfix {
@@ -102,19 +102,19 @@ img.img_home_current {
 }
 
 .show_header li span:hover {
-    color: #9fbe5d;
+    color: #F7c33e;
 }
 
 ul li.hot_menu_li a:hover {
-    color: #9fbe5d;
+    color: #F7c33e;
 }
 
 a:hover {
-    color: #9fbe5d;
+    color: #F7c33e;
 }
 
 a.header_forum_current:hover {
-    color: #9fbe5d;
+    color: #F7c33e;
 }
 
 img.header_title_img {

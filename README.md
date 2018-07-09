@@ -93,3 +93,11 @@ IDEA部署maven工程到Tomcat：https://blog.csdn.net/li_steve/article/details/
 * movieWishMapper里面的selectByUid和selectByMovieid方法没有写对应的sql语句？
 * 修改了UserInformationController.java中的login函数，注释掉了password = Tool.getInstance().getMD5(password);不知道这个函数如何使用？
 * 图书搜索有bug
+
+## 修改
+all.css-9：#b4d66b->#DCC7AA 主体外围绿改粉
+       -79:#9fbe5d->#eac67a 主体内部深绿改黄
+       -50：#000->#eae3ea 头部按钮文本黑改白
+header.css-33:#fff->#6B7A8F->#44b4ce 头部白改暗蓝改蓝
+          -2\93\105\109\113\117:#9fbe5d->#F7882F->#f7c33e 头部按钮高亮 绿改橙改黄
+header.html:注释了12-16文本
