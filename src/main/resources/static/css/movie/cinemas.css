@@ -11,11 +11,7 @@ main {
     padding-bottom: 2em;
 }
 h1{
-<<<<<<< HEAD
     color:#a1c15e;
-=======
-    color:#6b7a8f;
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
     text-align: center;
 }
 div.movie_cover {
@@ -78,8 +74,6 @@ img.movie_video_rec_cover {
 img.movie_atc_s_name{
     max-width: 120px;
     max-height:120px;
-    min-width: 100px;
-    min-height: 100px;
     display: block;
 }
 div.movie_video_rec_name{
@@ -213,7 +207,6 @@ div.close_img_tip:hover {
 }
 .movie_show{
     color: #666666;
-    font-weight: 500;
 }
 .movie_video_rec_name_1,.movie_atc_s_name_1{
     font-size: 13px;
@@ -252,12 +245,8 @@ div.close_img_tip:hover {
     font-family: Arial,Helvetica,sans-serif;
     font-weight: 500;
 }
-#booking, .booking{
-<<<<<<< HEAD
+#booking{
     background: #b4d66b;
-=======
-    background: #6b7a8f;
->>>>>>> 55c43114c5785def4f972292851a70cab1028956
     width: 100px;
     height: 3em;
     border-radius: .5em;
@@ -265,7 +254,4 @@ div.close_img_tip:hover {
     border-style: none;
     font-size: .9em;
     cursor: pointer;
-}
-div.cinema_information{
-    padding: .2em 0;
 }

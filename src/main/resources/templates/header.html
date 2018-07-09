@@ -8,7 +8,11 @@
         <input type="hidden" th:if="${userInformation.phone}==null" id="user_name_a" value="wsk"/>
         <input type="hidden" th:if="${userInformation.phone}!=null" th:value="${userInformation.phone}" id="user_name_a"
                value="wsk"/>
+<<<<<<< HEAD
+        <img src="/image/logo1.PNG" style="width: 5.2em;height: 1.5em" class="header_title_img"/>
+=======
         <img src="/image/CoViewer.png" style="width: 5.2em;height: 1.5em" class="header_title_img"/>
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
         <!--<a href="/home">-->
                     <!--<span class="header_title_text" style="margin-left: 10px">-->
                         <!--影伴-->
@@ -17,10 +21,17 @@
         <ul class="show_header">
             <li class="header_home">
                 <span class="">
+<<<<<<< HEAD
+                    <a href="/homepage" class="header_home_current header_current" th:if="${action}==1">
+                        <img src="/image/home_current.png" class="img_home"/>首页
+                    </a>
+                    <a href="/homepage" class="header_home_current " th:if="${action}!=1">
+=======
                     <a href="/home" class="header_home_current header_current" th:if="${action}==1">
                         <img src="/image/home_current.png" class="img_home"/>首页
                     </a>
                     <a href="/home" class="header_home_current " th:if="${action}!=1">
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
                         <img src="/image/home.png" class="img_home"/>首页
                     </a>
                 </span>

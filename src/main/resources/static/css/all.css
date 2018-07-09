@@ -4,6 +4,15 @@
 body {
     padding: 0;
     margin: 0 auto;
+<<<<<<< HEAD
+    font-size: 16px;
+    width: 100%;
+    background: #DCC7AA;
+    background-size: cover;
+    opacity: .9;
+    font-weight: 700;
+    font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;;
+=======
     font-size: 17px;
     width: 100%;
     background: #F3DFC3;
@@ -11,6 +20,7 @@ body {
     opacity: .9;
     font-weight: 700;
     font-family: "Calibri", "楷体", "黑体", "宋体", sans-serif;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 /*img:hover{*/
     /*cursor: zoom-in;*/
@@ -51,13 +61,21 @@ a {
 }
 
 a:hover {
+<<<<<<< HEAD
+    color: #9fbe5d;
+=======
     color: #6b7a8f;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
     cursor: pointer;
 }
 
 img.friends_image_header:hover, .friends_username:hover {
     cursor: pointer;
+<<<<<<< HEAD
+    color: #9fbe5d;
+=======
     color: #6b7a8f;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 div.all_friends_comment, div.all_friends_comment_my {
@@ -118,7 +136,11 @@ button.all_friends_comment_publish {
 
 span.all_friends_username {
     padding: 0;
+<<<<<<< HEAD
+    color: #76a513;
+=======
     color: #6b7a8f;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
     cursor: pointer;
 }
 
@@ -160,7 +182,11 @@ button.chang_btn:hover, button.chang_btn2:hover,input.chang_btn:hover, input.cha
 }
 
 .findMoreComment:hover, #findMoreComment:hover {
+<<<<<<< HEAD
+    color: #76a513;
+=======
     color: #6b7a8f;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 #notMoreComment {
@@ -192,7 +218,11 @@ button.friends_collection, button.friends_collection_current {
 }
 
 button.friends_collection_current {
+<<<<<<< HEAD
+    color: #9fbe5d;
+=======
     color: #6b7a8f;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 button.friends_comment {
@@ -204,5 +234,9 @@ button.friends_good {
 }
 
 button.friends_good_current {
+<<<<<<< HEAD
+    color: #9fbe5d;
+=======
     color: #6b7a8f;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }

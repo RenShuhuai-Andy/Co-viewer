@@ -168,7 +168,11 @@ public class MovieController {
 
     //添加到想看
     @RequestMapping(value = "/add/movie/wish")
+<<<<<<< HEAD
+    public String addMovieWish(Model model,HttpServletRequest request) {
+=======
     public Map addMovieWish(HttpServletRequest request) {
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 //        System.out.println("add/movie/wish:ok");
         String movieid = request.getParameter("id");
         Integer new_movie_id = Integer.valueOf(movieid);
@@ -177,9 +181,17 @@ public class MovieController {
         Map<String, String> map = new HashMap<>();
         if (Tool.getInstance().isNullOrEmpty(userInformation)) {
             map.put("result", "0");
+<<<<<<< HEAD
+            //return map;
+            return null;
+        }
+        MovieWish movieWish = new MovieWish();
+        movieWish.setName();
+=======
             return map;
         }
         MovieWish movieWish = new MovieWish();
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
         movieWish.setUid((Integer) request.getSession().getAttribute("uid"));
         movieWish.setAllow((short) 1);
         movieWish.setModified(new Date());
@@ -189,15 +201,40 @@ public class MovieController {
         int id_result = movieWishService.insert(movieWish);
         if (id_result != 1) {
             map.put("result", "0");
+<<<<<<< HEAD
+            //return map;
+            return null;
+        }
+        map.put("result", "1");
+        //return map;
+        //我关注的电影列表
+        String url = "http://m.maoyan.com/movie/" + movieid + ".json";
+        String result = HttpUtils.maoyan(url);
+        MovieInformation information = JSON.parseObject(result, MovieInformation.class);
+        model.addAttribute("movie", information);
+        Map<String, Integer> userMap = new HashMap<>();
+        userMap.put("uid",(Integer) request.getSession().getAttribute("uid"));
+        userMap.put("start",0);
+        List<MovieWish> FocusList=new ArrayList<>();
+        FocusList=movieWishService.selectByUid(userMap);
+        model.addAttribute("FocusList", FocusList);
+        model.addAttribute("userInformation", userInformation);
+        return "FocusList";
+=======
             return map;
         }
         map.put("result", "1");
         return map;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
     }
 
     //查看想看的人的列表
     @RequestMapping(value = "/check/movie/wish")
+<<<<<<< HEAD
+    public String checkMovieWish(Model model,HttpServletRequest request) {
+=======
     public List checkMovieWish(HttpServletRequest request) {
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
         System.out.println("check/movie/wish:ok");
         String movieid = request.getParameter("id");
         Integer new_movie_id = Integer.valueOf(movieid);
@@ -207,7 +244,12 @@ public class MovieController {
         List<Integer> uidList = new ArrayList<>();
         List<UserInformation> userInformationList = new ArrayList<>();
         if (Tool.getInstance().isNullOrEmpty(userInformation)) {
+<<<<<<< HEAD
+            //return wishlist;
+            return null;
+=======
             return wishlist;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
         }
         Map<String, Integer> map = new HashMap<>();
         map.put("movieid", new_movie_id);
@@ -219,7 +261,18 @@ public class MovieController {
         userInformationList = userInformationService.getAllForeach(uidList);//根据用户id获取所有想看的用户的信息
         String testString = userInformation.getName();
         System.out.println(testString);
+<<<<<<< HEAD
+        //return userInformationList;
+        String url = "http://m.maoyan.com/movie/" + movieid + ".json";
+        String result = HttpUtils.maoyan(url);
+        MovieInformation information = JSON.parseObject(result, MovieInformation.class);
+        model.addAttribute("movie", information);
+        model.addAttribute("userInformationList", userInformationList);
+        model.addAttribute("userInformation", userInformation);
+        return "userInformationList";
+=======
         return userInformationList;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
     }
 
     //即将上映的电影
