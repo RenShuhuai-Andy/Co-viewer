@@ -30,7 +30,10 @@ public class Movies {
     private int dur;
     private String id;
     private String time;
+<<<<<<< HEAD
     public String getId(){
         return id;
     }
+=======
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }

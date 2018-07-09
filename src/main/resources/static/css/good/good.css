@@ -5,7 +5,11 @@ body {
     width: 1000px;
     /*background: #d4d6cb;*/
     /*background: url("../image/saber.jpg") repeat fixed;*/
+<<<<<<< HEAD
     background: #b4d66b;
+=======
+    background: #6b7a8f;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
     background-size: cover;
     opacity: .9;
     font-weight: 700;

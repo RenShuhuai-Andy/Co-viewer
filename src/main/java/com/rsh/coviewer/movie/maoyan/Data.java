@@ -9,8 +9,11 @@ import java.util.ArrayList;
 public class Data  {
     private boolean hasNext;
     private ArrayList<Movies> movies;
+<<<<<<< HEAD
 
     public ArrayList<Movies> getMovies() {
         return movies;
     }
+=======
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }

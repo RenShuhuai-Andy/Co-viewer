@@ -8,7 +8,10 @@ public class Data {
     private MovieDetailModel movieDetailModel;
     private CommentResponseModel commentResponseModel;
 
+<<<<<<< HEAD
     public MovieDetailModel getMovieDetailModel() {
         return movieDetailModel;
     }
+=======
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }

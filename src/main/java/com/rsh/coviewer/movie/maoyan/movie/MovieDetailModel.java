@@ -26,7 +26,10 @@ public class MovieDetailModel {
     private String ver;//2D或3D
     private String vnum;//
     private int wish;//想看人数
+<<<<<<< HEAD
     public String getId(){
         return id;
     }
+=======
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }

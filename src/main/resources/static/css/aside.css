@@ -125,7 +125,11 @@ input.search {
 }
 
 .search_movie:hover, .search_publish:hover, .search_user:hover, .search_forum:hover, .search_music:hover,.search_book:hover {
+<<<<<<< HEAD
     box-shadow: 0px 0px 1px 1px #9fbe5d;
+=======
+    box-shadow: 0px 0px 1px 1px #6b7a8f;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 /*.search_forum{*/
@@ -159,7 +163,11 @@ a.myName, a.myAutograph {
 li.my_friends_li {
     list-style: none;
     /*font-size: .9em;*/
+<<<<<<< HEAD
     color: #9fbe5d;
+=======
+    color: #6b7a8f;
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
     display: inline-block;
     width: 200px;
     margin-left: -30px;
@@ -232,7 +240,11 @@ span.ui-helper-hidden-accessible {
 }
 
 .show_message_title_close:hover {
+<<<<<<< HEAD
     color: #9fbe5d
+=======
+    color: #6b7a8f
+>>>>>>> 55c43114c5785def4f972292851a70cab1028956
 }
 
 .show_message_content_name {
