@@ -129,35 +129,35 @@ public class UserInformationController {
         if (Tool.getInstance().isNullOrEmpty(userInformation)) {
             return "redirect:/login";
         }
-/*        model.addAttribute("userInformation", userInformation);
-        String url = "http://m.maoyan.com/movie/list.json?type=hot&offset=0&limit=20";
-        String result = HttpUtils.maoyan(url);
-        Hot hot = JSON.parseObject(result, Hot.class);
-
-        //修改
-        Iterator iterator=hot.getData().getMovies().iterator();
-        ArrayList <String> image=new ArrayList<>();
-        ArrayList <MovieInformation> movieInformations=new ArrayList<>();
-        while(iterator.hasNext()){
-            Movies movie=(Movies)iterator.next();
-            String id=movie.getId();
-            url = "http://m.maoyan.com/movie/" + id + ".json";
-            result = HttpUtils.maoyan(url);
-            MovieInformation information = JSON.parseObject(result, MovieInformation.class);
-            String img=information.getData().getMovieDetailModel().getId();
-            movieInformations.add(information);
-            image.add(img);
-        }
-        model.addAttribute("image", image);
-        model.addAttribute("movieInformation", movieInformations);
-
-        model.addAttribute("movie", hot);
-//        model.addAttribute("movie_name", "正在上映");
-        model.addAttribute("action", 3);
-        model.addAttribute("myFriends", getMyFriends(userInformation.getId()));
-        model.addAttribute("userInformation", userInformation);
-        model.addAttribute("username", userInformation.getName());
-        model.addAttribute("autograph", userInformation.getAutograph());*/
+//        model.addAttribute("userInformation", userInformation);
+//        String url = "http://m.maoyan.com/movie/list.json?type=hot&offset=0&limit=20";
+//        String result = HttpUtils.maoyan(url);
+//        Hot hot = JSON.parseObject(result, Hot.class);
+//
+//        //修改
+//        Iterator iterator=hot.getData().getMovies().iterator();
+//        ArrayList <String> image=new ArrayList<>();
+//        ArrayList <MovieInformation> movieInformations=new ArrayList<>();
+//        while(iterator.hasNext()){
+//            Movies movie=(Movies)iterator.next();
+//            String id=movie.getId();
+//            url = "http://m.maoyan.com/movie/" + id + ".json";
+//            result = HttpUtils.maoyan(url);
+//            MovieInformation information = JSON.parseObject(result, MovieInformation.class);
+//            String img=information.getData().getMovieDetailModel().getId();
+//            movieInformations.add(information);
+//            image.add(img);
+//        }
+//        model.addAttribute("image", image);
+//        model.addAttribute("movieInformation", movieInformations);
+//
+//        model.addAttribute("movie", hot);
+////        model.addAttribute("movie_name", "正在上映");
+//        model.addAttribute("action", 3);
+//        model.addAttribute("myFriends", getMyFriends(userInformation.getId()));
+//        model.addAttribute("userInformation", userInformation);
+//        model.addAttribute("username", userInformation.getName());
+//        model.addAttribute("autograph", userInformation.getAutograph());
         return "homepage";
     }
 
