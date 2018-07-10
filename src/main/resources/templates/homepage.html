@@ -1,62 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>一起看电影</title>
+    <meta charset="utf-8" />
+    <title>Co-viewer</title>
+    <script src="/js/myfocus-2.0.4.min.js" type="text/javascript"></script>
+    <script src="/js/mf-pattern/mF_YSlider.js" type="text/javascript"></script>
+    <link href="/js/mf-pattern/mF_YSlider.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        myFocus.set({
+            id:'picBox'
+        })
+    </script>
+    <style type="text/css">
+        body{
+            width: 100%;
+            height: 600px;
+            margin:0 auto;
+        }
+        .nav{
+            height: 50px;
+            background-color: aqua;
+        }
+        .view{
+            height: 1000px;
+        }
+        .pic img{
+            width: 1400px;
+            height:750px;
+        }
+    </style>
 </head>
 <header>
     <a href="/my">
-        <span class="header_title_text">
-            个人主页
-        </span>
+                    <span class="header_title_text">
+                        个人主页
+                    </span>
     </a>
 </header>
-
 <body><!--首页的设置，对象有movie，对应Hot类,可以获得上映电影相关信息，用法可以见下例；其他可见UserInformationController.java的homepage方法-->
-<div th:with="m=${movie.getData()}">
-    <div class="search_movie_result" th:each="o:${m.getMovies()}">
-        <div class="search_movie_result_img">
-            <a th:href="'/hot/movie/information/'+${o.getId()}">
-                <img src="/image/1.jpg" th:src="${o.getImg()}" th:alt="${o.getNm()}"/>
-            </a>
-        </div>
-        <div class="search_movie_result_information">
-            <div class="search_movie_result_information_1">
-                <span class="search_movie_result_information_name_1">电影名</span>:
-                <span class="search_movie_result_information_name_2">
-                            <a th:href="'/hot/movie/information/'+${o.getId()}" th:text="${o.getNm()}">来自WSK的爱</a>
-                        </span>
-            </div>
-            <div class="search_movie_result_information_1">
-                <span class="search_movie_result_information_director_1">导演</span>:
-                <span class="search_movie_result_information_director_2" th:text="${o.getDir()}">
-                        </span>
-            </div>
-            <div class="search_movie_result_information_1">
-                <span class="search_movie_result_information_cast_1">主演</span>:
-                <span class="search_movie_result_information_cast_2" th:text="${o.getStar()}">
-                        </span>
-            </div>
-            <div class="search_movie_result_information_1">
-                <span class="search_movie_result_information_name_1">类型</span>:
-                <span class="search_movie_result_information_name_2" th:text="${o.getCat()}">
-                        </span>
-            </div>
-            <div class="search_movie_result_information_1">
-                <span class="search_movie_result_information_name_1">2/3D</span>:
-                <span th:text="${o.getVer()}">
-                            </span>
-            </div>
-            <div class="search_movie_result_information_1">
-                <span class="search_movie_result_information_name_1">评分</span>:
-                <span class="search_movie_result_information_name_2" th:text="${o.getSc()}">2017</span>
-            </div>
-            <div class="search_movie_result_information_1">
-                <span class="search_movie_result_information_name_1">上映时间</span>:
-                <span class="search_movie_result_information_name_2"
-                      th:text="${o.getRt()}">9.9</span>
-            </div>
-        </div>
+<div class="nav"></div>
+<div class="view" id="picBox">
+    <div class="pic">
+        <ul>
+            <li><a th:href="'/hot/movie/information/'+${movieInformation.get(0).getData().getMovieDetailModel().getId()}"><img src="/image/img/yaoshen.jpg"/></a></li>
+            <li><a th:href="'/hot/movie/information/'+${movieInformation.get(1).getData().getMovieDetailModel().getId()}"><img src="/image/img/dongwushijie.jpg"/></a></li>
+            <li><a th:href="'/hot/movie/information/'+${movieInformation.get(2).getData().getMovieDetailModel().getId()}"><img src="/image/img/xiebuyazheng.jpg"/></a></li>
+            <li><a th:href="'/hot/movie/information/'+${movieInformation.get(3).getData().getMovieDetailModel().getId()}"><img src="/image/img/datouerzi.jpg"/></a></li>
+            <li><a th:href="'/hot/movie/information/'+${movieInformation.get(4).getData().getMovieDetailModel().getId()}"><img src="/image/img/zhuluojishijie.jpg"/></a></li>
+            <li><a th:href="'/hot/movie/information/'+${movieInformation.get(5).getData().getMovieDetailModel().getId()}"><img src="/image/img/axiuluo.jpg"/></a></li>
+            <li><a th:href="'/hot/movie/information/'+${movieInformation.get(7).getData().getMovieDetailModel().getId()}"><img src="/image/img/chaorenzongdongyuan.jpg"/></a></li>
+        </ul>
     </div>
 </div>
 </body>

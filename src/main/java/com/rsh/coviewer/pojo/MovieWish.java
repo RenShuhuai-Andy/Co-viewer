@@ -1,5 +1,7 @@
 package com.rsh.coviewer.pojo;
 
+import com.rsh.coviewer.movie.maoyan.movie.MovieInformation;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -16,6 +18,28 @@ public class MovieWish implements Serializable {
     private Integer uid;
     private Date modified;
     private short allow;
+    private String nm;
+    private double sc;
+    public String getNm(){
+        return nm;
+    }
+    public void setNm(String nm){
+        this.nm=nm;
+    }
+    public double getSc(){
+        return sc;
+    }
+    public void setSc(double sc){
+        this.sc=sc;
+    }
+   /* private MovieInformation movieInformation;
+
+    public void setMovieInformation(MovieInformation movieInformation){
+        this.movieInformation=movieInformation;
+    }*/
+  /*  public MovieInformation getMovieInformation(){
+        return movieInformation;
+    }*/
 
     public Integer getId() {
         return id;

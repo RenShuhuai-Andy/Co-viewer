@@ -149,7 +149,7 @@ public class UserInformationController {
             image.add(img);
         }
         model.addAttribute("image", image);
-        model.addAttribute("movieInformation", movieInformations);
+        model.addAttribute("movieInfomation", movieInformations);
 
         model.addAttribute("movie", hot);
 //        model.addAttribute("movie_name", "正在上映");
