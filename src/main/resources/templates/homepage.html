@@ -22,7 +22,7 @@
             background-color: #ffffff;
         }
         .view{
-            height: 1000px;
+            height: 680px;
         }
         .pic img{
             width: 1400px;
@@ -30,20 +30,14 @@
         }
     </style>
 </head>
-<!--<header>-->
-    <!--<a href="/my">-->
-                    <!--<span class="header_title_text">-->
-                        <!--个人主页-->
-                    <!--</span>-->
-    <!--</a>-->
-<!--</header>-->
+
 <header class="" th:fragment="copy">
     <link rel="stylesheet" href="/css/header.css"/>
     <div>
-        <input type="hidden" th:value="${action}"/>
+     <!--   <input type="hidden" th:value="${action}"/>
         <input type="hidden" th:if="${userInformation.phone}==null" id="user_name_a" value="wsk"/>
         <input type="hidden" th:if="${userInformation.phone}!=null" th:value="${userInformation.phone}" id="user_name_a"
-               value="wsk"/>
+               value="wsk"/>-->
         <img src="/image/new_logo.PNG" style="position: relative;left: 190px; padding-left: 10px; float: left; width: 14.2em;height: 1.57em" class="header_title_img"/>
         <!--<a href="/home">-->
         <!--<span class="header_title_text" style="margin-left: 10px">-->
@@ -184,22 +178,31 @@
             </li>
         </ul>
     </div>
-    <input type="hidden" id="uid" th:value="${userInformation.id}" value="0"/>
+  <!--  <input type="hidden" id="uid" th:value="${userInformation.id}" value="0"/>-->
     <script src="/js/header.js">
     </script>
 </header>
+
 <body><!--首页的设置，对象有movie，对应Hot类,可以获得上映电影相关信息，用法可以见下例；其他可见UserInformationController.java的homepage方法-->
 <div class="nav"></div>
 <div class="view" id="picBox">
     <div class="pic">
         <ul>
-            <li><a th:href="'/hot/movie/information/'+${movieInformation.get(0).getData().getMovieDetailModel().getId()}"><img src="/image/img/yaoshen.jpg"/></a></li>
+            <!--<li><a th:href="'/hot/movie/information/'+${movieInformation.get(0).getData().getMovieDetailModel().getId()}"><img src="/image/img/yaoshen.jpg"/></a></li>
             <li><a th:href="'/hot/movie/information/'+${movieInformation.get(1).getData().getMovieDetailModel().getId()}"><img src="/image/img/dongwushijie.jpg"/></a></li>
             <li><a th:href="'/hot/movie/information/'+${movieInformation.get(2).getData().getMovieDetailModel().getId()}"><img src="/image/img/xiebuyazheng.jpg"/></a></li>
             <li><a th:href="'/hot/movie/information/'+${movieInformation.get(3).getData().getMovieDetailModel().getId()}"><img src="/image/img/datouerzi.jpg"/></a></li>
             <li><a th:href="'/hot/movie/information/'+${movieInformation.get(4).getData().getMovieDetailModel().getId()}"><img src="/image/img/zhuluojishijie.jpg"/></a></li>
             <li><a th:href="'/hot/movie/information/'+${movieInformation.get(5).getData().getMovieDetailModel().getId()}"><img src="/image/img/axiuluo.jpg"/></a></li>
-            <li><a th:href="'/hot/movie/information/'+${movieInformation.get(7).getData().getMovieDetailModel().getId()}"><img src="/image/img/chaorenzongdongyuan.jpg"/></a></li>
+            <li><a th:href="'/hot/movie/information/'+${movieInformation.get(7).getData().getMovieDetailModel().getId()}"><img src="/image/img/chaorenzongdongyuan.jpg"/></a></li>-->
+
+            <!--<li><img src="/image/img/dongwushijie.jpg"/></li>-->
+            <!--<li><img src="/image/img/yaoshen.jpg"/></li>-->
+            <!--<li><img src="/image/img/xiebuyazheng.jpg"/></li>-->
+            <!--<li><img src="/image/img/datouerzi.jpg"/></li>-->
+            <!--<li><img src="/image/img/zhuluojishijie.jpg"/></li>-->
+            <!--<li><img src="/image/img/axiulu.jpg"/></li>-->
+            <li><img src="/image/img/chaorenzongdongyuan.jpg"/></li>
         </ul>
     </div>
 </div>

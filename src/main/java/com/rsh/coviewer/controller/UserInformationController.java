@@ -129,7 +129,7 @@ public class UserInformationController {
         if (Tool.getInstance().isNullOrEmpty(userInformation)) {
             return "redirect:/login";
         }
-        model.addAttribute("userInformation", userInformation);
+/*        model.addAttribute("userInformation", userInformation);
         String url = "http://m.maoyan.com/movie/list.json?type=hot&offset=0&limit=20";
         String result = HttpUtils.maoyan(url);
         Hot hot = JSON.parseObject(result, Hot.class);
@@ -157,7 +157,7 @@ public class UserInformationController {
         model.addAttribute("myFriends", getMyFriends(userInformation.getId()));
         model.addAttribute("userInformation", userInformation);
         model.addAttribute("username", userInformation.getName());
-        model.addAttribute("autograph", userInformation.getAutograph());
+        model.addAttribute("autograph", userInformation.getAutograph());*/
         return "homepage";
     }
 
