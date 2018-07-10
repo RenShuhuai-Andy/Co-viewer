@@ -68,11 +68,11 @@
                          style="display: inline"></div>
                 </div>
                 <div >
-                    <th>关注电影</th>
-                    <th>目前评分</th>
+                    <div style="padding-right: 300px; float: left">关注电影</div>
+                    <div style="float: left">目前评分</div>
                     <div th:each="o:${FocusList}">
-                        <div th:text="${o.getNm()}"></div>
-                        <div th:text="${o.getSc()}"></div>
+                        <div style="float: left;padding-right: 300px;" th:text="${o.getNm()}"></div>
+                        <div style="float: left;" th:text="${o.getSc()}"></div>
                     </div>
                 <!--热门短评-->
                 </div>

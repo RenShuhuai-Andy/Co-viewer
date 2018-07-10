@@ -77,7 +77,6 @@
                 <div >
                         <tr>
                             <th>用户名</th>
-                            <th>用户简介</th>
                         </tr>
                             <!--<div th:each="o:${userInformationList}">
                                 <div><img th:src="${o.getAvatar()}"/></div>
@@ -85,7 +84,10 @@
                                 <div th:text="${o.getAutograph()}"}></div>
                             </div>-->
                     <ul th:each="o:${userInformationList}">
-                        <li th:text="${o.getName()}" th:value="${o.getId()}" class="my_friends_li" th:title="${o.getName()}">wsk1103</li>
+                        <tr>
+                            <img th:src="${o.getAvatar()}" width=30px height=30px />
+                            <li th:text="${o.getName()}" th:value="${o.getId()}" style="padding-left: 35px" class="my_friends_li" th:title="${o.getName()}"></li>
+                        </tr>
                         <span class="show_my_friends_btn" style="float: right">+</span>
                         <li class="my_friends_btn">
                             <div>
