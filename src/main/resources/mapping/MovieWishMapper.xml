@@ -8,9 +8,11 @@
         <result column="uid" property="uid" jdbcType="INTEGER"/>
         <result column="modified" property="modified" jdbcType="TIMESTAMP"/>
         <result column="allow" property="allow" jdbcType="SMALLINT"/>
+        <result column="nm" property="nm" jdbcType="VARCHAR"/>
+        <result column="sc" property="sc" jdbcType="DOUBLE"/>
     </resultMap>
     <sql id="Base_Column_List">
-    id, movieid, time, uid, modified, allow
+    id, movieid, time, uid, modified, allow,nm,sc
   </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
@@ -39,12 +41,13 @@
     where id = #{id,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="com.rsh.coviewer.pojo.MovieWish">
-    insert into moviewish (id, movieid, time, 
-      uid, modified, allow
+    insert into moviewish (id, movieid, time,
+      uid, modified, allow,nm,sc
       )
     values (#{id,jdbcType=INTEGER}, #{movieid,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP}, 
-      #{uid,jdbcType=INTEGER}, #{modified,jdbcType=TIMESTAMP}, #{allow,jdbcType=SMALLINT}
+      #{uid,jdbcType=INTEGER}, #{modified,jdbcType=TIMESTAMP}, #{allow,jdbcType=SMALLINT},#{nm,jdbcType=VARCHAR},#{sc,jdbcType=DOUBLE}
       )
+
   </insert>
     <insert id="insertSelective" parameterType="com.rsh.coviewer.pojo.MovieWish">
         insert into moviewish
@@ -67,6 +70,12 @@
             <if test="allow != null">
                 allow,
             </if>
+            <if test="nm != null">
+                nm,
+            </if>
+            <if test="sc != null">
+                sc,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -86,6 +95,12 @@
             </if>
             <if test="allow != null">
                 #{allow,jdbcType=SMALLINT},
+            </if>
+            <if test="nm != null">
+                #{nm,jdbcType=VARCHAR},
+            </if>
+            <if test="sc != null">
+                #{sc,jdbcType=DOUBLE},
             </if>
         </trim>
     </insert>
@@ -107,6 +122,12 @@
             <if test="allow != null">
                 allow = #{allow,jdbcType=SMALLINT},
             </if>
+            <if test="nm != null">
+                allow = #{nm,jdbcType=VARCHAR},
+            </if>
+            <if test="sc != null">
+                allow = #{sc,jdbcType=DOUBLE},
+            </if>
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
@@ -116,7 +137,9 @@
       time = #{time,jdbcType=TIMESTAMP},
       uid = #{uid,jdbcType=INTEGER},
       modified = #{modified,jdbcType=TIMESTAMP},
-      allow = #{allow,jdbcType=SMALLINT}
+      allow = #{allow,jdbcType=SMALLINT},
+      nm = #{nm,jdbcType=VARCHAR},
+      sc = #{sc,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

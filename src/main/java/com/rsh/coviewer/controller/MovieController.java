@@ -244,10 +244,12 @@ public class MovieController {
         String testString = userInformation.getName();
         System.out.println(testString);
         //return userInformationList;
+
         String url = "http://m.maoyan.com/movie/" + movieid + ".json";
         String result = HttpUtils.maoyan(url);
         MovieInformation information = JSON.parseObject(result, MovieInformation.class);
         model.addAttribute("movie", information);
+
         model.addAttribute("userInformationList", userInformationList);
         model.addAttribute("userInformation", userInformation);
         return "userInformationList";
