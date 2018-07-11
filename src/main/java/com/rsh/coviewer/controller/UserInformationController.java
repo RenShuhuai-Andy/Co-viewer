@@ -1,5 +1,6 @@
 package com.rsh.coviewer.controller;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import com.alibaba.fastjson.JSON;
 import com.rsh.coviewer.bean.*;
 import com.rsh.coviewer.movie.maoyan.Hot;
@@ -122,6 +123,7 @@ public class UserInformationController {
             return login(model, request, response);
         }
     }
+
     //添加的主页
     @RequestMapping(value = "/homepage")
     public String homepage(Model model, HttpServletRequest request) {
@@ -378,6 +380,51 @@ public class UserInformationController {
         return "information/userInformation";
     }
 
+
+    //想看列表里的用户信息
+    @RequestMapping(value = "/check/movie/information")
+    public String wishListInformation(Model model, HttpServletRequest request, @RequestParam(value = "id") int id) {
+//        System.out.println("id:"+id);
+        request.getSession().setAttribute("userId", id);
+        UserInformation userInformation = getUserInformationById(id);
+        UserInformation user = getUserInformationById(id);
+        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
+            userInformation = new UserInformation();
+            userInformation.setId(0);
+        }
+        if (Tool.getInstance().isNullOrEmpty(user)) {
+            user = new UserInformation();
+        }
+        request.getSession().removeAttribute("user");
+
+        if (Tool.getInstance().isNullOrEmpty(request.getSession().getAttribute("userId"))) {
+            return "redirect:/home";
+        }
+        model.addAttribute("user", user);
+        model.addAttribute("userInformation", userInformation);
+        int uid, fid;
+        if (Tool.getInstance().isNullOrEmpty(userInformation.getId())) {
+            uid = 0;
+        } else {
+            uid = userInformation.getId();
+        }
+        if (Tool.getInstance().isNullOrEmpty(user.getId())) {
+            fid = 0;
+        } else {
+            fid = user.getId();
+        }
+        boolean b = isFriends(uid, fid);
+        if (b) {
+            model.addAttribute("isFriends", 1);
+        } else {
+            model.addAttribute("isFriends", 0);
+        }
+        getMyCritic(model, id, user);
+        model.addAttribute("myFriends", getMyFriends(userInformation.getId()));
+        getUserCounts(model, uid);
+        return "information/userInformation";
+    }
+
     //进入影评的详细内容
     @RequestMapping(value = "/criticInformation")
     public String criticInformation(HttpServletRequest request, @RequestParam int pid) {
@@ -483,39 +530,48 @@ public class UserInformationController {
             return "redirect:/login";
         }
         model.addAttribute("userInformation", userInformation);
+        if (Tool.getInstance().isNullOrEmpty(userInformation)) {
+            return "redirect:/login";
+        }
         model.addAttribute("myFriends", getMyFriends(userInformation.getId()));
         getUserCounts(model, userInformation.getId());
         Map<String, Integer> map = new HashMap<>();
         map.put("uid", userInformation.getId());
         map.put("start", 0);
         List<CommentCritic> commentCritics = commentCriticService.selectByUid(map);
+
         List<MyCommentBean> list = new ArrayList<>();
         MyCommentBean myCommentBean;
         UserInformation user;
         PublishCritic publishCritic;
-        for (CommentCritic c : commentCritics) {
-            user = userInformationService.selectByPrimaryKey(c.getUid());
-            publishCritic = publishCriticService.getObjectById(c.getPid());
-            myCommentBean = new MyCommentBean();
+        try {
+            for (CommentCritic c : commentCritics) {
+                user = userInformationService.selectByPrimaryKey(c.getUid());
+                publishCritic = publishCriticService.getObjectById(c.getPid());
+                myCommentBean = new MyCommentBean();
 //            myCommentBean.setList(commentCritics);
-            myCommentBean.setAvatar(user.getAvatar());
+                myCommentBean.setAvatar(user.getAvatar());
 //            myCommentBean.setCollection(collectionCriticService.getCounts(c.getPid()));
-            myCommentBean.setCritic(publishCritic.getCritic());
-            myCommentBean.setComment(c.getCritic());
-            myCommentBean.setPublishTime(Tool.getInstance().DateToStringWithHours(publishCritic.getTime()));
-            myCommentBean.setFid(user.getId());
-            myCommentBean.setPid(publishCritic.getId());
-            myCommentBean.setCommentTime(Tool.getInstance().DateToStringWithHours(c.getTime()));
+                myCommentBean.setCritic(publishCritic.getCritic());
+                myCommentBean.setComment(c.getCritic());
+                myCommentBean.setPublishTime(Tool.getInstance().DateToStringWithHours(publishCritic.getTime()));
+                myCommentBean.setFid(user.getId());
+                myCommentBean.setPid(publishCritic.getId());
+                myCommentBean.setCommentTime(Tool.getInstance().DateToStringWithHours(c.getTime()));
 //            myCommentBean.setGood(goodCriticService.getCounts(c.getPid()));
-            myCommentBean.setPicture(publishCritic.getPicture());
-            myCommentBean.setIsprivate(publishCritic.getIsprivate());
-            myCommentBean.setName(user.getName());
-            myCommentBean.setThumbnails(publishCritic.getThumbnails());
-            myCommentBean.setCid(c.getId());
-            myCommentBean.setTitle(publishCritic.getTitle());
-            myCommentBean.setFid(isFriends(userInformation.getId(), user.getId()) ? 1 : 0);
-            list.add(myCommentBean);
+                myCommentBean.setPicture(publishCritic.getPicture());
+                myCommentBean.setIsprivate(publishCritic.getIsprivate());
+                myCommentBean.setName(user.getName());
+                myCommentBean.setThumbnails(publishCritic.getThumbnails());
+                myCommentBean.setCid(c.getId());
+                myCommentBean.setTitle(publishCritic.getTitle());
+                myCommentBean.setFid(isFriends(userInformation.getId(), user.getId()) ? 1 : 0);
+                list.add(myCommentBean);
+            }
+        } catch (Exception e) {
+            System.out.println("4");
         }
+
         model.addAttribute("result", list);
         return "information/MyComment";
     }
@@ -539,28 +595,32 @@ public class UserInformationController {
         PublishCritic publishCritic;
         UserInformation user;
         List<MyCollectionBean> list = new ArrayList<>();
-        for (CollectionCritic c : collectionCritics) {
-            userPublish = new MyCollectionBean();
-            publishCritic = publishCriticService.getObjectById(c.getPid());
-            user = userInformationService.selectByPrimaryKey(publishCritic.getUid());
-            userPublish.setCollection(1);
-            userPublish.setGood(isGood(uid, user.getId()) ? 1 : 0);
-            userPublish.setFriend(isFriends(uid, user.getId()) ? 1 : 0);
-            userPublish.setTime(Tool.getInstance().DateToStringWithHours(publishCritic.getTime()));
-            userPublish.setCollectionTime(Tool.getInstance().DateToStringWithHours(c.getTime()));
-            userPublish.setAvatar(user.getAvatar());
-            userPublish.setCollectionCounts(collectionCriticService.getCounts(c.getPid()));
-            userPublish.setCommentCounts(commentCriticService.getCounts(c.getPid()));
-            userPublish.setCritic(publishCritic.getCritic());
-            userPublish.setGoodCounts(goodCriticService.getCounts(c.getPid()));
-            userPublish.setIsPrivate(publishCritic.getIsprivate());
-            userPublish.setName(user.getName());
-            userPublish.setPicture(publishCritic.getPicture());
-            userPublish.setPid(c.getPid());
-            userPublish.setThumbnails(publishCritic.getThumbnails());
-            userPublish.setTitle(publishCritic.getTitle());
-            userPublish.setUid(publishCritic.getUid());
-            list.add(userPublish);
+        try {
+            for (CollectionCritic c : collectionCritics) {
+                userPublish = new MyCollectionBean();
+                publishCritic = publishCriticService.getObjectById(c.getPid());
+                user = userInformationService.selectByPrimaryKey(publishCritic.getUid());
+                userPublish.setCollection(1);
+                userPublish.setGood(isGood(uid, user.getId()) ? 1 : 0);
+                userPublish.setFriend(isFriends(uid, user.getId()) ? 1 : 0);
+                userPublish.setTime(Tool.getInstance().DateToStringWithHours(publishCritic.getTime()));
+                userPublish.setCollectionTime(Tool.getInstance().DateToStringWithHours(c.getTime()));
+                userPublish.setAvatar(user.getAvatar());
+                userPublish.setCollectionCounts(collectionCriticService.getCounts(c.getPid()));
+                userPublish.setCommentCounts(commentCriticService.getCounts(c.getPid()));
+                userPublish.setCritic(publishCritic.getCritic());
+                userPublish.setGoodCounts(goodCriticService.getCounts(c.getPid()));
+                userPublish.setIsPrivate(publishCritic.getIsprivate());
+                userPublish.setName(user.getName());
+                userPublish.setPicture(publishCritic.getPicture());
+                userPublish.setPid(c.getPid());
+                userPublish.setThumbnails(publishCritic.getThumbnails());
+                userPublish.setTitle(publishCritic.getTitle());
+                userPublish.setUid(publishCritic.getUid());
+                list.add(userPublish);
+            }
+        } catch (Exception e) {
+            System.out.println("5");
         }
         model.addAttribute("result", list);
         return "information/myCollection";
@@ -585,29 +645,34 @@ public class UserInformationController {
         PublishCritic publishCritic;
         UserInformation user;
         List<MyCollectionBean> list = new ArrayList<>();
-        for (GoodCritic c : collectionCritics) {
-            userPublish = new MyCollectionBean();
-            publishCritic = publishCriticService.getObjectById(c.getPid());
-            user = userInformationService.selectByPrimaryKey(publishCritic.getUid());
-            userPublish.setCollection(isCollection(uid, publishCritic.getId()) ? 1 : 0);
-            userPublish.setGood(1);
-            userPublish.setFriend(isFriends(uid, user.getId()) ? 1 : 0);
-            userPublish.setTime(Tool.getInstance().DateToStringWithHours(publishCritic.getTime()));
-            userPublish.setCollectionTime(Tool.getInstance().DateToStringWithHours(c.getTime()));
-            userPublish.setAvatar(user.getAvatar());
-            userPublish.setCollectionCounts(collectionCriticService.getCounts(c.getPid()));
-            userPublish.setCommentCounts(commentCriticService.getCounts(c.getPid()));
-            userPublish.setCritic(publishCritic.getCritic());
-            userPublish.setGoodCounts(goodCriticService.getCounts(c.getPid()));
-            userPublish.setIsPrivate(publishCritic.getIsprivate());
-            userPublish.setName(user.getName());
-            userPublish.setPicture(publishCritic.getPicture());
-            userPublish.setPid(c.getPid());
-            userPublish.setThumbnails(publishCritic.getThumbnails());
-            userPublish.setTitle(publishCritic.getTitle());
-            userPublish.setUid(publishCritic.getUid());
-            list.add(userPublish);
+        try {
+            for (GoodCritic c : collectionCritics) {
+                userPublish = new MyCollectionBean();
+                publishCritic = publishCriticService.getObjectById(c.getPid());
+                user = userInformationService.selectByPrimaryKey(publishCritic.getUid());
+                userPublish.setCollection(isCollection(uid, publishCritic.getId()) ? 1 : 0);
+                userPublish.setGood(1);
+                userPublish.setFriend(isFriends(uid, user.getId()) ? 1 : 0);
+                userPublish.setTime(Tool.getInstance().DateToStringWithHours(publishCritic.getTime()));
+                userPublish.setCollectionTime(Tool.getInstance().DateToStringWithHours(c.getTime()));
+                userPublish.setAvatar(user.getAvatar());
+                userPublish.setCollectionCounts(collectionCriticService.getCounts(c.getPid()));
+                userPublish.setCommentCounts(commentCriticService.getCounts(c.getPid()));
+                userPublish.setCritic(publishCritic.getCritic());
+                userPublish.setGoodCounts(goodCriticService.getCounts(c.getPid()));
+                userPublish.setIsPrivate(publishCritic.getIsprivate());
+                userPublish.setName(user.getName());
+                userPublish.setPicture(publishCritic.getPicture());
+                userPublish.setPid(c.getPid());
+                userPublish.setThumbnails(publishCritic.getThumbnails());
+                userPublish.setTitle(publishCritic.getTitle());
+                userPublish.setUid(publishCritic.getUid());
+                list.add(userPublish);
+            }
+        } catch (Exception e) {
+            System.out.println("6");
         }
+
         model.addAttribute("result", list);
         return "information/MyGood";
     }
@@ -730,8 +795,8 @@ public class UserInformationController {
             int id = getUserInformationId(phone);//用户id
             if (id == -1) return false;
             String psw = userPasswordService.getPassword(id).getPassword();//获取用户的真实密码
-            System.out.println("真实密码："+psw);
-            System.out.println("输入密码："+password);
+            System.out.println("真实密码：" + psw);
+            System.out.println("输入密码：" + password);
 //            password = Tool.getInstance().getMD5(password);
             if (password.equals(psw)) {
                 result = true;
