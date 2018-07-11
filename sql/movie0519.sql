@@ -11,7 +11,7 @@
  Target Server Version : 50721
  File Encoding         : 65001
 
- Date: 11/07/2018 08:47:37
+ Date: 11/07/2018 19:00:37
 */
 
 SET NAMES utf8mb4;
@@ -444,7 +444,7 @@ CREATE TABLE `collectioncritic`  (
   `modified` datetime(0) NULL DEFAULT NULL,
   `allow` smallint(6) NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of collectioncritic
@@ -467,6 +467,7 @@ INSERT INTO `collectioncritic` VALUES (18, 168, '2017-06-10 18:43:28', 12, '2017
 INSERT INTO `collectioncritic` VALUES (19, 193, '2017-12-31 14:59:02', 12, '2017-12-31 14:59:02', 1);
 INSERT INTO `collectioncritic` VALUES (20, 195, '2018-04-28 10:19:54', 12, '2018-04-28 10:19:54', 1);
 INSERT INTO `collectioncritic` VALUES (21, 209, '2018-07-03 20:12:37', 12, '2018-07-03 20:12:37', 1);
+INSERT INTO `collectioncritic` VALUES (22, 202, '2018-07-11 11:45:21', 12, '2018-07-11 11:45:21', 1);
 
 -- ----------------------------
 -- Table structure for commentcritic
@@ -482,7 +483,7 @@ CREATE TABLE `commentcritic`  (
   `modified` datetime(0) NULL DEFAULT NULL,
   `allow` smallint(6) NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of commentcritic
@@ -509,6 +510,7 @@ INSERT INTO `commentcritic` VALUES (19, '来自wsk的爱', 0, 193, '2017-12-31 1
 INSERT INTO `commentcritic` VALUES (20, '哈哈哈', 0, 194, '2018-03-02 14:17:55', 12, '2018-03-02 14:17:55', 1);
 INSERT INTO `commentcritic` VALUES (21, '很棒', 0, 194, '2018-03-03 15:03:53', 12, '2018-03-03 15:03:53', 1);
 INSERT INTO `commentcritic` VALUES (22, '真是好书，谢谢推荐', 0, 204, '2018-07-10 22:01:46', 12, '2018-07-10 22:01:46', 1);
+INSERT INTO `commentcritic` VALUES (23, '评论', 0, 206, '2018-07-11 11:45:15', 12, '2018-07-11 11:45:15', 1);
 
 -- ----------------------------
 -- Table structure for critic_report
@@ -520,7 +522,7 @@ CREATE TABLE `critic_report`  (
   `uid` int(11) NULL DEFAULT NULL,
   `ctime` datetime(0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of critic_report
@@ -529,6 +531,7 @@ INSERT INTO `critic_report` VALUES (1, 5, 12, '2018-03-08 18:53:52');
 INSERT INTO `critic_report` VALUES (2, 15, 13, '2018-03-09 14:23:40');
 INSERT INTO `critic_report` VALUES (3, 4, 12, '2018-04-28 10:41:49');
 INSERT INTO `critic_report` VALUES (4, 204, 12, '2018-07-10 22:02:58');
+INSERT INTO `critic_report` VALUES (5, 181, 12, '2018-07-11 09:19:52');
 
 -- ----------------------------
 -- Table structure for forumcontent
@@ -558,7 +561,7 @@ CREATE TABLE `goodcritic`  (
   `modified` datetime(0) NULL DEFAULT NULL,
   `allow` smallint(6) NULL DEFAULT 1,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 34 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of goodcritic
@@ -596,6 +599,10 @@ INSERT INTO `goodcritic` VALUES (30, 204, '2018-05-08 23:10:12', 17, '2018-05-08
 INSERT INTO `goodcritic` VALUES (31, 202, '2018-05-08 23:10:17', 17, '2018-05-08 23:10:17', 1);
 INSERT INTO `goodcritic` VALUES (32, 203, '2018-05-08 23:10:18', 17, '2018-05-08 23:10:18', 1);
 INSERT INTO `goodcritic` VALUES (33, 210, '2018-07-10 22:00:29', 12, '2018-07-10 22:00:29', 1);
+INSERT INTO `goodcritic` VALUES (34, 206, '2018-07-11 09:21:49', 12, '2018-07-11 09:21:49', 1);
+INSERT INTO `goodcritic` VALUES (35, 204, '2018-07-11 09:21:51', 12, '2018-07-11 09:21:51', 1);
+INSERT INTO `goodcritic` VALUES (36, 205, '2018-07-11 09:21:55', 12, '2018-07-11 09:21:55', 1);
+INSERT INTO `goodcritic` VALUES (37, 202, '2018-07-11 11:45:19', 12, '2018-07-11 11:45:19', 1);
 
 -- ----------------------------
 -- Table structure for integralsource
@@ -653,32 +660,14 @@ CREATE TABLE `message`  (
   `message` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `onread` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 33 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of message
 -- ----------------------------
-INSERT INTO `message` VALUES (1, 12, 13, '2017-06-12 20:45:30', 'wsk', 0);
-INSERT INTO `message` VALUES (2, 12, 5, '2018-04-28 10:41:07', '测试', 1);
-INSERT INTO `message` VALUES (3, 12, 5, '2018-04-28 10:41:07', '来自wsk的爱', 1);
-INSERT INTO `message` VALUES (4, 12, 3, '2018-04-28 10:28:19', '爱你的人', 1);
-INSERT INTO `message` VALUES (5, 3, 12, '2018-04-28 10:28:19', '122', 1);
-INSERT INTO `message` VALUES (6, 12, 3, '2018-04-28 10:28:19', '天气', 1);
-INSERT INTO `message` VALUES (7, 12, 3, '2018-04-28 10:28:19', '一起玩耍啊', 1);
-INSERT INTO `message` VALUES (8, 12, 5, '2018-04-28 10:41:07', 'xixi', 1);
-INSERT INTO `message` VALUES (9, 12, 3, '2018-04-28 10:28:19', '666', 1);
-INSERT INTO `message` VALUES (10, 12, 12, '2018-07-11 01:48:00', '你好', 1);
-INSERT INTO `message` VALUES (11, 12, 12, '2018-07-11 01:48:00', '今天快乐吗', 1);
-INSERT INTO `message` VALUES (12, 12, 5, '2018-04-28 10:41:13', 'haha', 0);
-INSERT INTO `message` VALUES (13, 17, 12, '2018-07-04 21:45:48', '爱你哟', 1);
-INSERT INTO `message` VALUES (14, 12, 17, '2018-07-04 21:45:48', '233', 1);
-INSERT INTO `message` VALUES (15, 12, 17, '2018-07-04 21:45:48', '为什么时间改变了', 1);
-INSERT INTO `message` VALUES (16, 12, 17, '2018-07-04 21:45:48', '？？？', 1);
-INSERT INTO `message` VALUES (17, 12, 17, '2018-07-04 21:45:48', '看看', 1);
-INSERT INTO `message` VALUES (18, 12, 17, '2018-07-04 21:45:48', '12345', 1);
-INSERT INTO `message` VALUES (19, 12, 12, '2018-07-11 01:48:00', '123', 1);
-INSERT INTO `message` VALUES (20, 12, 10, '2018-07-11 01:45:41', '你好', 1);
-INSERT INTO `message` VALUES (21, 12, 10, '2018-07-11 01:45:55', '一起看这部“我不是药神吗”', 0);
+INSERT INTO `message` VALUES (30, 12, 3, '2018-07-11 11:48:52', '你好', 1);
+INSERT INTO `message` VALUES (31, 12, 1, '2018-07-11 11:48:06', '一起看这部电影吗？', 0);
+INSERT INTO `message` VALUES (32, 12, 3, '2018-07-11 11:48:52', '一起去看电影吧', 1);
 
 -- ----------------------------
 -- Table structure for movieforum
@@ -8271,7 +8260,7 @@ CREATE TABLE `moviewish`  (
   `nm` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT '',
   `sc` double(255, 0) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of moviewish
@@ -8285,6 +8274,7 @@ INSERT INTO `moviewish` VALUES (9, 1200486, '2018-07-11 00:53:10', 17, '2018-07-
 INSERT INTO `moviewish` VALUES (12, 1200486, '2018-07-11 00:56:31', 16, '2018-07-11 00:56:31', 1, '我不是药神', 10);
 INSERT INTO `moviewish` VALUES (14, 1200486, '2018-07-11 01:34:59', 12, '2018-07-11 01:34:59', 1, '我不是药神', 10);
 INSERT INTO `moviewish` VALUES (15, 1200486, '2018-07-11 01:44:21', 12, '2018-07-11 01:44:21', 1, '我不是药神', 10);
+INSERT INTO `moviewish` VALUES (16, 1200486, '2018-07-11 11:47:40', 12, '2018-07-11 11:47:40', 1, '我不是药神', 10);
 
 -- ----------------------------
 -- Table structure for myfriends
@@ -8313,7 +8303,7 @@ INSERT INTO `myfriends` VALUES (7, '2016-11-23 13:07:42', 3, 2, NULL, 1);
 INSERT INTO `myfriends` VALUES (13, '2017-01-14 16:03:33', 3, 12, NULL, 1);
 INSERT INTO `myfriends` VALUES (14, '2017-05-03 19:00:11', 5, 12, '2017-06-09 21:09:58', 1);
 INSERT INTO `myfriends` VALUES (15, '2018-05-08 23:07:32', 12, 17, '2018-05-08 23:07:32', 1);
-INSERT INTO `myfriends` VALUES (16, '2018-05-08 23:08:53', 17, 12, '2018-07-10 22:05:47', 0);
+INSERT INTO `myfriends` VALUES (16, '2018-05-08 23:08:53', 17, 12, '2018-07-11 11:01:38', 1);
 
 -- ----------------------------
 -- Table structure for mytask
@@ -8482,7 +8472,7 @@ CREATE TABLE `publishcritic`  (
   `allow` smallint(6) NULL DEFAULT 1,
   `thumbnails` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 211 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 213 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of publishcritic
@@ -8633,22 +8623,22 @@ INSERT INTO `publishcritic` VALUES (170, '这波不亏', 0, 0, 'images/raL4ZN3R3
 INSERT INTO `publishcritic` VALUES (171, '这是一个好的开团', 0, 0, 'images/VM4MS0PrbPbAFW1Vg8PP.jpg', '2017-05-01 21:47:58', '可以啊', 3, '2017-05-01 21:47:58', 1, NULL);
 INSERT INTO `publishcritic` VALUES (172, '???', 0, 1, 'images/tGENhqvDVDS0Z5dmvfQU.jpg', '2017-05-01 21:52:11', '来一波？', 12, '2017-05-01 21:52:11', 1, NULL);
 INSERT INTO `publishcritic` VALUES (174, '啊撒旦法', 1, 0, '', '2017-05-01 23:00:54', '阿道夫', 5, '2017-05-01 23:00:58', 1, NULL);
-INSERT INTO `publishcritic` VALUES (175, '来自吴树楷的爱', 1, 0, '', '2017-05-01 23:43:16', '嘻嘻', 12, '2017-05-01 23:43:18', 1, NULL);
-INSERT INTO `publishcritic` VALUES (176, '来自wsk的爱', 0, 0, '', '2017-05-01 23:48:30', '有道理', 12, '2017-05-01 23:48:30', 1, NULL);
+INSERT INTO `publishcritic` VALUES (175, '来自吴树楷的爱', 1, 0, '', '2017-05-01 23:43:16', '嘻嘻', 12, '2018-07-11 09:48:19', 0, NULL);
+INSERT INTO `publishcritic` VALUES (176, '来自wsk的爱', 0, 0, '', '2017-05-01 23:48:30', '有道理', 12, '2018-07-11 09:48:16', 0, NULL);
 INSERT INTO `publishcritic` VALUES (177, '是', 0, 0, '', '2017-05-01 23:51:45', '是', 12, '2017-05-01 23:51:45', 1, NULL);
 INSERT INTO `publishcritic` VALUES (178, '好情人', 0, 1, 'images/MJKxwDTSrWLyFj7XpTa120161212.jpg', '2017-05-03 22:48:31', '邓颖芝', 12, '2017-06-10 22:29:04', 1, NULL);
 INSERT INTO `publishcritic` VALUES (179, '好拉我', 0, 0, 'images/xCQrMuEVdeDQFFCeYu1Z20170116.jpg', '2017-05-03 22:52:06', '一起啊', 5, '2017-05-03 22:52:06', 1, NULL);
-INSERT INTO `publishcritic` VALUES (180, '？', 0, 0, 'images/MJKxwDTSrWLyFj7XpTa120161212.jpg', '2017-05-03 23:06:22', '？', 12, '2017-05-03 23:06:22', 1, NULL);
+INSERT INTO `publishcritic` VALUES (180, '？', 0, 0, 'images/MJKxwDTSrWLyFj7XpTa120161212.jpg', '2017-05-03 23:06:22', '？', 12, '2018-07-11 09:19:58', 0, NULL);
 INSERT INTO `publishcritic` VALUES (181, 'test', 0, 1, 'images/978P2M7w0ExYqmzci0aX20170105.jpg', '2017-05-03 23:07:44', 'test', 3, '2017-05-03 23:07:44', 1, NULL);
 INSERT INTO `publishcritic` VALUES (182, '这是孙宇', 1, 0, 'images/MJKxwDTSrWLyFj7XpTa120161212.jpg', '2017-05-03 23:20:58', '这是育峰', 5, '2017-05-03 23:20:58', 1, NULL);
 INSERT INTO `publishcritic` VALUES (183, '123', 0, 1, 'images/MJKxwDTSrWLyFj7XpTa120161212.jpg', '2017-05-03 23:29:10', '456', 12, '2017-05-03 23:29:12', 1, NULL);
 INSERT INTO `publishcritic` VALUES (184, '心有不甘', 1, 1, '', '2017-05-03 23:30:50', '卫兰', 3, '2017-05-03 23:30:50', 1, NULL);
-INSERT INTO `publishcritic` VALUES (185, '爱我别怕，', 0, 0, '', '2017-05-03 23:31:29', '嗯嗯', 12, '2017-05-03 23:31:29', 1, NULL);
+INSERT INTO `publishcritic` VALUES (185, '爱我别怕，', 0, 0, '', '2017-05-03 23:31:29', '嗯嗯', 12, '2018-07-11 09:19:20', 0, NULL);
 INSERT INTO `publishcritic` VALUES (186, '答应我写完《月球上的人》，再写一首少见多怪，好吗', 0, 0, '/images/43yxbarfqq1495008800449.jpg', '2017-05-17 16:13:24', '月球上的人', 13, '2017-05-17 16:13:24', 1, NULL);
-INSERT INTO `publishcritic` VALUES (187, '回忆是眼睛里的海', 0, 1, '/images/nJHBxRLH981495009228182.jpg', '2017-05-17 16:20:32', '阿甘正传', 12, '2017-05-17 16:20:32', 1, NULL);
+INSERT INTO `publishcritic` VALUES (187, '回忆是眼睛里的海', 0, 1, '/images/nJHBxRLH981495009228182.jpg', '2017-05-17 16:20:32', '阿甘正传', 12, '2018-07-11 09:20:35', 0, NULL);
 INSERT INTO `publishcritic` VALUES (188, '终于看到这个广告的完整版了，笑死，原来表情包出自这里！', 0, 0, '/images/7833qyXTmp1495009538758.jpg', '2017-05-17 16:25:39', '来自地狱的你', 12, '2017-05-17 16:25:39', 1, NULL);
 INSERT INTO `publishcritic` VALUES (189, '爱久见人心', 1, 0, '/images/ESJTfJVvTz1496230361233.jpg', '2017-05-31 19:33:17', 'nice', 4, '2017-05-31 19:33:19', 1, '/images/thumbnails/ESJTfJVvTz1496230361233.jpg');
-INSERT INTO `publishcritic` VALUES (190, '我的微博', 1, 0, '/images/lDkDjFc4EI1496246192054.jpg', '2017-05-31 23:57:25', '来看呀', 12, '2017-06-08 23:46:51', 1, '/images/thumbnails/lDkDjFc4EI1496246192054.jpg');
+INSERT INTO `publishcritic` VALUES (190, '我的微博', 1, 0, '/images/lDkDjFc4EI1496246192054.jpg', '2017-05-31 23:57:25', '来看呀', 12, '2018-07-11 09:19:38', 0, '/images/thumbnails/lDkDjFc4EI1496246192054.jpg');
 INSERT INTO `publishcritic` VALUES (191, '百度一下，你就知道', 1, 0, '/images/EQBkdN2PTA1496246395463.jpg', '2017-05-31 23:59:56', '**', 12, '2017-06-06 22:49:47', 1, '/images/thumbnails/EQBkdN2PTA1496246395463.jpg');
 INSERT INTO `publishcritic` VALUES (192, '王牌飞行员申请出战', 1, 0, '/images/aXpD1lWMwL1509509240052.jpg', '2017-11-01 12:07:51', '王牌特工', 12, '2017-11-01 12:07:51', 1, '/images/thumbnails/aXpD1lWMwL1509509240052.jpg');
 INSERT INTO `publishcritic` VALUES (193, '爱的供养', 1, 0, '/images/IJgzTjMgX01514703423801.jpg', '2017-12-31 14:57:09', '爱的供养', 12, '2018-07-09 09:30:35', 0, '/images/thumbnails/IJgzTjMgX01514703423801.jpg');
@@ -8658,17 +8648,19 @@ INSERT INTO `publishcritic` VALUES (196, 'AS', 1, 0, '/images/Tvs9vQusju15147933
 INSERT INTO `publishcritic` VALUES (197, 'wsk666', 0, 1, '/images/X3ForRnzWO1519972160951.jpg', '2018-03-02 14:29:23', '肖申克的救赎', 12, '2018-07-09 09:30:28', 0, '/images/thumbnails/X3ForRnzWO1519972160951.jpg');
 INSERT INTO `publishcritic` VALUES (198, '树楷这个页面做的也太强了吧好羡慕啊', 0, 0, '', '2018-03-03 15:02:48', '仲恺94**7奋斗剧', 12, '2018-03-24 18:50:19', 0, '');
 INSERT INTO `publishcritic` VALUES (199, '树楷这个页面做的也太强了吧好羡慕啊', 0, 0, '', '2018-03-03 15:03:01', '仲恺94**7奋斗剧', 12, '2018-03-24 18:50:23', 0, '');
-INSERT INTO `publishcritic` VALUES (200, '托尔斯泰', 1, 0, '', '2018-04-28 10:27:04', '托尔斯泰', 12, '2018-04-28 10:27:04', 1, '');
+INSERT INTO `publishcritic` VALUES (200, '托尔斯泰', 1, 0, '', '2018-04-28 10:27:04', '托尔斯泰', 12, '2018-07-11 09:20:22', 0, '');
 INSERT INTO `publishcritic` VALUES (201, '数据库', 1, 0, '/images/yTJB8NDZwC1525789526937.jpg', '2018-05-08 22:25:31', '算法分析', 12, '2018-07-09 09:30:46', 0, '/images/thumbnails/yTJB8NDZwC1525789526937.jpg');
 INSERT INTO `publishcritic` VALUES (202, 'Is time to Test', 1, 0, '', '2018-05-08 23:05:43', '爱德华', 12, '2018-05-08 23:05:43', 1, '');
-INSERT INTO `publishcritic` VALUES (203, '好书，推荐', 1, 0, '', '2018-05-08 23:06:10', '算法导论（原书第2版）', 12, '2018-05-08 23:06:10', 1, '');
+INSERT INTO `publishcritic` VALUES (203, '好书，推荐', 1, 0, '', '2018-05-08 23:06:10', '算法导论（原书第2版）', 12, '2018-07-11 09:48:47', 0, '');
 INSERT INTO `publishcritic` VALUES (204, '这是一本好书，我推荐给大家！', 1, 0, '', '2018-05-08 23:07:18', '算法导论', 17, '2018-05-08 23:07:18', 1, '');
 INSERT INTO `publishcritic` VALUES (205, '当复联3完结后，我们这代人的超级英雄系列也将全部完结。', 1, 0, '', '2018-05-08 23:10:03', '复仇者联盟3：无限战争', 17, '2018-05-08 23:10:03', 1, '');
-INSERT INTO `publishcritic` VALUES (206, '这种歌适合本兮徐良那个年代', 0, 0, '', '2018-05-08 23:10:45', '不仅仅是喜欢', 17, '2018-05-08 23:10:45', 1, '');
-INSERT INTO `publishcritic` VALUES (207, '****', 0, 0, '', '2018-05-09 14:20:10', '等等', 12, '2018-05-09 14:20:10', 1, '');
-INSERT INTO `publishcritic` VALUES (208, '呵呵', 0, 0, '', '2018-07-03 20:04:57', '我不是药神', 12, '2018-07-03 20:04:57', 1, '');
-INSERT INTO `publishcritic` VALUES (209, '呵呵哒', 0, 0, '', '2018-07-03 20:08:32', '我不是药神', 12, '2018-07-03 20:08:32', 1, '');
-INSERT INTO `publishcritic` VALUES (210, '牛逼啊', 1, 0, '', '2018-07-04 09:59:03', '邪不压正', 12, '2018-07-04 09:59:03', 1, '');
+INSERT INTO `publishcritic` VALUES (206, '这种歌适合本兮徐良那个年代', 1, 0, '', '2018-05-08 23:10:45', '不仅仅是喜欢', 17, '2018-05-08 23:10:45', 1, '');
+INSERT INTO `publishcritic` VALUES (207, '****', 0, 0, '', '2018-05-09 14:20:10', '等等', 12, '2018-07-11 09:19:29', 0, '');
+INSERT INTO `publishcritic` VALUES (208, '呵呵', 0, 0, '', '2018-07-03 20:04:57', '我不是药神', 12, '2018-07-11 09:20:09', 0, '');
+INSERT INTO `publishcritic` VALUES (209, '呵呵哒', 0, 0, '', '2018-07-03 20:08:32', '我不是药神', 12, '2018-07-11 09:19:33', 0, '');
+INSERT INTO `publishcritic` VALUES (210, '牛逼啊', 1, 0, '', '2018-07-04 09:59:03', '邪不压正', 12, '2018-07-11 09:20:28', 0, '');
+INSERT INTO `publishcritic` VALUES (211, '好看！', 0, 0, '', '2018-07-11 09:57:08', '那些年，我们一起追的女孩', 12, '2018-07-11 09:57:18', 0, '');
+INSERT INTO `publishcritic` VALUES (212, '影评', 0, 0, '', '2018-07-11 11:46:54', '这个**不太冷', 12, '2018-07-11 11:46:54', 1, '');
 
 -- ----------------------------
 -- Table structure for userheadpicture
@@ -8724,7 +8716,7 @@ INSERT INTO `userinformation` VALUES (3, '', '没人能把谁的幸福没收', '
 INSERT INTO `userinformation` VALUES (4, '我什么', '看夫人v', '2016-11-08', '2016-11-01 16:45:40', '无数次', '樱花树下', '3280869266', '男', NULL, '/images/ytK71RDNz2QYuwb3BXtv.jpg', 1);
 INSERT INTO `userinformation` VALUES (5, '广东省广州市白云区', NULL, NULL, '2016-11-27 17:20:52', '文艺,惊悚,', '生命中不能承受的轻', '12345678', '男', NULL, '/images/HF4MzMjvs7F2pGARkSB8.jpg', 1);
 INSERT INTO `userinformation` VALUES (10, NULL, '我的', NULL, '2016-11-27 20:43:25', NULL, '13302712944', '13302712944', NULL, NULL, '/images/mPs0JK9ByHEpD3AnQ0BM.jpg', 1);
-INSERT INTO `userinformation` VALUES (12, '湖北省-武汉市-洪山区', '冲啊！！！', '1996-05-06', '2016-11-27 20:53:11', '动漫,热血,', '吉尔伽美什', '123456', '男', NULL, '/images/1.jpg', 1);
+INSERT INTO `userinformation` VALUES (12, '安徽省-六安市-寿县', '冲啊！！！', '1996-05-06', '2016-11-27 20:53:11', '动漫,热血,', '吉尔伽美什', '123456', '男', NULL, '/images/1.jpg', 1);
 INSERT INTO `userinformation` VALUES (13, NULL, NULL, NULL, '2016-12-26 10:29:06', NULL, '月球上的人', '15989013212', NULL, NULL, '/images/PorRmD0JDZ1495278394532.jpg', 1);
 INSERT INTO `userinformation` VALUES (16, NULL, NULL, NULL, '2018-02-03 00:00:00', NULL, 'ws', '122', '男', '2012-03-04 00:00:00', '/images/wuqiong.jpg', 1);
 INSERT INTO `userinformation` VALUES (17, NULL, NULL, NULL, '2017-05-18 16:02:43', NULL, 'www', '1234567', '男', '2017-05-18 16:02:41', '/images/wuqiong.jpg', 1);
