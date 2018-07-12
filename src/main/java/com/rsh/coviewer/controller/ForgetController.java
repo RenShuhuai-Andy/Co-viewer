@@ -172,13 +172,13 @@ public class ForgetController {
 
         //get the random num to phone which should check the phone to judge the phone is belong user
         getRandomForCodePhone(req);
-        try {
-            Send.sendEmail(phone, req, res);
-            map.put("result", "1");
-        } catch (MessagingException me) {
-            me.printStackTrace();
-            map.put("result", "0");
-        }
+//        try {
+//            Send.sendEmail(phone, req, res);
+//            map.put("result", "1");
+//        } catch (MessagingException me) {
+//            me.printStackTrace();
+//            map.put("result", "0");
+//        }
         return map;
     }
 

@@ -24,12 +24,12 @@ public class Send {
         String text2 = "，请保护好自己的验证码。";
         String text = text1 + ra + text2;
         Properties prop = new Properties();
-        prop.setProperty("mail.host", "smtp.139.com");//ʹ�����������smtp����
-        prop.setProperty("mail.transport.protocol", "smtp");//����ѡ��Э��
-        prop.setProperty("mail.smtp.auth", "true");//ʹ����ͨ�Ŀͻ���
-        prop.setProperty("mail.smtp.port", "25");//�˿ں�Ϊ25����ʵĬ�ϵľ���25�����Ҳ���Բ���
-        Session session = Session.getInstance(prop);//��ȡ�Ự
-        Transport ts = session.getTransport();//��������
+        prop.setProperty("mail.host", "smtp.139.com");
+        prop.setProperty("mail.transport.protocol", "smtp");
+        prop.setProperty("mail.smtp.auth", "true");
+        prop.setProperty("mail.smtp.port", "25");
+        Session session = Session.getInstance(prop);
+        Transport ts = session.getTransport();
         ts.connect("smtp.139.com", PHONE + "@139.com", PASSWORD);
         Message message = new MimeMessage(session);
         message.setFrom(new InternetAddress(PHONE + "@139.com"));

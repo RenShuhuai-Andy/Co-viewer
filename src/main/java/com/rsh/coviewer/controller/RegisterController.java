@@ -66,6 +66,7 @@ public class RegisterController {
     @RequestMapping(value = "register3",method = {RequestMethod.POST, RequestMethod.GET})
     public String register(@RequestParam String password,
                            HttpServletRequest request, Model model) {
+        System.out.println("the end stop for the register");
         String token = TokenProccessor.getInstance().makeToken();
         String phone = (String) request.getSession().getAttribute("phone");
         request.getSession().setAttribute("token", token);
@@ -79,8 +80,11 @@ public class RegisterController {
     @RequestMapping(value = "fillPassword",method = {RequestMethod.POST, RequestMethod.GET})
     public String fillPassword(@RequestParam String password, @RequestParam String token, @RequestParam String username,
                                Model model, HttpServletRequest request) {
+        System.out.println("fill in the password");
         String phone = (String) request.getSession().getAttribute("phone");
+        System.out.println("phone:"+phone);
         boolean isRepeatSubmit = RepeatSubmit.isRepeatSubmit(token, (String) request.getSession().getAttribute("register2_token"));
+        System.out.println("isRepeatSubmit:"+isRepeatSubmit);
         if (isRepeatSubmit) {
             return register(model, request);
         } else {
@@ -100,7 +104,9 @@ public class RegisterController {
             userInformation.setBuildtime(new Date());
             userInformation.setAvatar("/images/wuqiong.jpg");
             int id_userinformation = userInformationService.insertSelective(userInformation);
+            System.out.println("id_userinformation:"+id_userinformation);
             int uid = getUserInformationId(phone);
+            System.out.println("uid:"+uid);
             if (id_userinformation !=1){
                 try {
                     userInformationService.deleteByPrimaryKey(uid);
@@ -109,6 +115,7 @@ public class RegisterController {
                 }
             }
             String md5Password = Tool.getInstance().getMD5(password);
+            System.out.println("md5password:"+md5Password);
             try {
                 Thread.sleep(500);
             } catch (InterruptedException e) {

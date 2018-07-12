@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title th:text="${movie.getData().getMovieDetailModel().getNm()}+'(瓢虫微生活)'">详情</title>
+    <title th:text="${movie.getData().getMovieDetailModel().getNm()}">详情</title>
     <link rel="stylesheet" href="/css/movieInformation.css"/>
     <link rel="stylesheet" href="/css/all.css"/>
     <link href="/image/logo1.PNG" rel="icon"/>
@@ -75,7 +75,7 @@
                          style="display: inline"></div>
                 </div>
                 <div >
-                        <tr>
+                        <tr style="color:#6b7a8f;font-size: 1.5em; margin-left: 10px;" >
                             <th>用户名</th>
                         </tr>
                             <!--<div th:each="o:${userInformationList}">
@@ -89,6 +89,7 @@
                             <li th:text="${o.getName()}" th:value="${o.getId()}" style="padding-left: 35px" class="my_friends_li" th:title="${o.getName()}"></li>
                         </tr>
                         <span class="show_my_friends_btn" style="float: right">+</span>
+                        <span style="float: right; margin-right: 30px" >湖北省/武汉市/洪山区</span>
                         <li class="my_friends_btn">
                             <div>
                                 <button class="my_friends_close" th:value="${o.getId()}" title="unsubscribe">×关注</button>
