@@ -1,7 +1,7 @@
 # Co-viewer
 
 2018.6-2018.7软件学院暑期工程实训  
-第七组：任抒怀、周振宇、庾聪晖、范志康、文泽宇、齐晓阳  
+第七组：Shuhuai Ren、Zhenyu Zhou、Conghui Yu、Zhikang Fan、Zeyu Wen、Xiaoyang Qi  
 项目：一起看电影（影伴）  
   
 ## Co-viewer项目启动方法：  
